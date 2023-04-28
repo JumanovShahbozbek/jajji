@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('teachers')
+@section('coments')
     active
 @endsection
 
@@ -16,7 +16,7 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <h4>Teachers</h4>
+                            <h4>Coments</h4>
                             <a href="{{ route('admin.coments.create') }}" class="btn btn-primary"
                                 style="position:absolute; right:50;">Create</a>
                         </div>
@@ -58,16 +58,16 @@
                                                 <td>{{ $coment->name }}</td>
                                                 <td>{{ $coment->subject }}</td>
 
-                                               {{--  <td>
-                                                    <form action="{{ route('admin.groups.destroy', $group->id) }}"
+                                                <td>
+                                                    <form action="{{ route('admin.coments.destroy', $coment->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('admin.groups.show', $group->id) }}"
+                                                        <a href="{{ route('admin.coments.show', $coment->id) }}"
                                                             class="btn btn-info">
                                                             <ion-icon class="fas fa-info-circle"></ion-icon>
                                                         </a>
-                                                        <a href="{{ route('admin.groups.edit', $group->id) }}"
+                                                        <a href="{{ route('admin.coments.edit', $coment->id) }}"
                                                             class="btn btn-primary">
                                                             <ion-icon class="far fa-edit"></ion-icon>
                                                         </a>
@@ -76,7 +76,7 @@
                                                             <ion-icon class="fas fa-times"></ion-icon>
                                                         </button>
                                                     </form>
-                                                </td> --}}
+                                                </td>
 
                                             </tr>
                                         @endforeach

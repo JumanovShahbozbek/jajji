@@ -39,14 +39,35 @@ class ComentController extends Controller
     {
         $coment = DB::table('coments')->where('id', $id)->first();
 
-        return view('admin.coments.index', compact('coment'));
+        return view('admin.coments.show', compact('coment'));
     }
 
     public function edit($id)
     {
         $coment = DB::table('coments')->where('id', $id)->first();
 
-        return view('admin.coments.index', compact('coment'));
+        return view('admin.coments.edit', compact('coment'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        DB::table('coments')->where('id', $id)->update([
+            'icon' => $request->icon,
+            'content'=> $request->content,
+            'img' => $request->img,
+            'surname' => $request->surname,
+            'name' => $request->name,
+            'subject' => $request->subject,
+        ]);
+
+        return redirect()->route('admin.coments.index');
+    }
+
+    public function destroy($id)
+    {
+        DB::table('coments')->where('id', $id)->delete();
+
+        return redirect()->route('admin.coments.index');
     }
 
 }

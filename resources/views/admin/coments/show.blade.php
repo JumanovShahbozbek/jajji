@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('teachers')
+@section('coments')
     active
 @endsection
 
@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>Show Product</h4>
-                            <a href="{{ route('admin.infos.index') }}" class="btn btn-primary"
+                            <a href="{{ route('admin.coments.index') }}" class="btn btn-primary"
                                 style="position:absolute; right:50;">Back</a>
                         </div>
 
@@ -22,22 +22,50 @@
                                 <table class="table table-striped" id="table-1">
                                     <thead>
                                         <tr>
-                                            <td>Info : </td>
-                                            <td><b>{{ $info->title }}</b></td>
+                                            <td>Icon : </td>
+                                            <td><b>{{ $coment->icon }}</b></td>
                                         </tr>
 
                                         <tr>
                                             <td>
-                                                <p>Des : </p>
+                                                <p>Content : </p>
                                             </td>
-                                            <td><b>{{ $info->description }}</b></td>
+                                            <td><b>{{ $coment->content }}</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>Photo : </p>
+                                            </td>
+                                            <td><b>{{ $coment->img }}</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>Surname : </p>
+                                            </td>
+                                            <td><b>{{ $coment->surname }}</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>Name : </p>
+                                            </td>
+                                            <td><b>{{ $coment->name }}</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>Job : </p>
+                                            </td>
+                                            <td><b>{{ $coment->subject }}</b></td>
                                         </tr>
 
 
                                        {{--  <tr>
                                             <td>Rasmi : </td>
                                             <td>
-                                                <img alt="image" src="/images/{{ $info->description }}" width="59">
+                                                <img alt="image" src="/images/{{ $coment->description }}" width="59">
                                             </td>
                                         </tr> --}}
 

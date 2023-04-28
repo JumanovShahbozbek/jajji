@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('teachers')
+@section('coments')
     active
 @endsection
 
