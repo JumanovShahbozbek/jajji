@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->text('icon');
+            $table->text('icon')->nullable();
             $table->text('tgram');
             $table->text('fbook');
             $table->text('insta');

@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('teachers')
+@section('infos')
     active
 @endsection
 
@@ -16,7 +16,7 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <h4>Teachers</h4>
+                            <h4>Infos</h4>
                             <a href="{{ route('admin.infos.create') }}" class="btn btn-primary"
                                 style="position:absolute; right:50;">Create</a>
                         </div>

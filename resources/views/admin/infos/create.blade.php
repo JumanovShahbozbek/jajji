@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('teachers')
+@section('infos')
     active
 @endsection
 
@@ -25,7 +25,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Yangi o'qituvchi qo'shish</h4>
+                            <h4>Ma'lumot qo'shish</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin.infos.store') }}" method="POST" enctype="multipart/form-data">

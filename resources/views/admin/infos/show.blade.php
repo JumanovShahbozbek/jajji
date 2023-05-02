@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('teachers')
+@section('infos')
     active
 @endsection
 
@@ -29,7 +29,7 @@
                                         <tr>
                                             <td>Rasmi : </td>
                                             <td>
-                                                <td><b>{{ $info->title }}</b></td>
+                                            <td><b>{{ $info->icon }}</b></td>
                                             </td>
                                         </tr>
 
@@ -39,12 +39,6 @@
                                             </td>
                                             <td><b>{{ $info->description }}</b></td>
                                         </tr>
-
-
-                                        
-
-
-
                                 </table>
                             </div>
                         </div>
