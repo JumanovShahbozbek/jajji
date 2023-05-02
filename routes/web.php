@@ -80,6 +80,10 @@ Route::prefix('admin/')->name('admin.')->group(function ()
     Route::get('articles/index', [ArticleController::class, 'index'])->name('articles.index');
     Route::get('articles/create', [ArticleController::class, 'create'])->name('articles.create');
     Route::post('articles/store', [ArticleController::class, 'store'])->name('articles.store');
+    Route::get('articles/show/{id}', [ArticleController::class, 'show'])->name('articles.show');
+    Route::get('articles/edit/{id}', [ArticleController::class, 'edit'])->name('articles.edit');
+    Route::put('articles/update/{id}', [ArticleController::class,'update'])->name('articles.update');
+    Route::delete('articles/destroy/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
 });
 

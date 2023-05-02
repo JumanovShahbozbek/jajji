@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('teachers')
+@section('articles')
     active
 @endsection
 
@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>Show Product</h4>
-                            <a href="{{ route('admin.infos.index') }}" class="btn btn-primary"
+                            <a href="{{ route('admin.articles.index') }}" class="btn btn-primary"
                                 style="position:absolute; right:50;">Back</a>
                         </div>
 
@@ -22,26 +22,30 @@
                                 <table class="table table-striped" id="table-1">
                                     <thead>
                                         <tr>
-                                            <td>Info : </td>
-                                            <td><b>{{ $info->title }}</b></td>
+                                            <td>Icon : </td>
+                                            <td><b>{{ $article->icon }}</b></td>
                                         </tr>
 
                                         <tr>
                                             <td>
-                                                <p>Des : </p>
+                                                <p>title : </p>
                                             </td>
-                                            <td><b>{{ $info->description }}</b></td>
+                                            <td><b>{{ $article->title }}</b></td>
                                         </tr>
 
-
-                                       {{--  <tr>
-                                            <td>Rasmi : </td>
+                                        <tr>
                                             <td>
-                                                <img alt="image" src="/images/{{ $info->description }}" width="59">
+                                                <p>name : </p>
                                             </td>
-                                        </tr> --}}
+                                            <td><b>{{ $article->name }}</b></td>
+                                        </tr>
 
-
+                                        <tr>
+                                            <td>
+                                                <p>content : </p>
+                                            </td>
+                                            <td><b>{{ $article->content }}</b></td>
+                                        </tr>
 
                                 </table>
                             </div>

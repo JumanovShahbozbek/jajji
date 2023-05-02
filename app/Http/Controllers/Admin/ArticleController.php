@@ -29,6 +29,39 @@ class ArticleController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('admin.coments.index');
+        return redirect()->route('admin.articles.index');
+    }
+
+    public function show($id)
+    {
+        $article = DB::table('articles')->where('id', $id)->first();
+
+        return view('admin.articles.show', compact('article'));
+    }
+
+    public function edit($id)
+    {
+        $article = DB::table('articles')->where('id', $id)->first();
+
+        return view('admin.articles.edit', compact('article'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        DB::table('articles')->where('id', $id)->update([
+            'icon' => $request->icon,
+            'title' => $request->title,
+            'name' => $request->name,
+            'content'=> $request->content,
+        ]);
+
+        return redirect()->route('admin.articles.index');
+    }
+
+    public function destroy($id)
+    {
+        DB::table('articles')->where('id', $id)->delete();
+
+        return redirect()->route('admin.articles.index');
     }
 }
