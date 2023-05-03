@@ -51,7 +51,7 @@ class ArticleController extends Controller
     {
         Article::find($id)->update($request->all());
 
-        return redirect(route('admin.articles.index'));
+        return redirect()->route('admin.articles.index');
     }
 
     

@@ -29,7 +29,7 @@
                                         <tr>
                                             <td>Rasmi : </td>
                                             <td>
-                                            <td><b>{{ $info->icon }}</b></td>
+                                            <td><b><img src="/icon/{{ $info->icon }}" width="100" alt=""></b></td>
                                             </td>
                                         </tr>
 

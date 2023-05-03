@@ -49,7 +49,7 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $info->title }}</td>
-                                                <td>{{ $info->icon }}</td>
+                                                <td><img src="/icon/{{ $info->icon }}" alt="" width="100px"></td>
                                                 <td>{{ $info->description }}</td>
 
                                                 <td>
@@ -74,6 +74,7 @@
 
                                     </tbody>
                                 </table>
+                                {{ $infos->links()}}
                             </div>
                         </div>
                     </div>
