@@ -32,7 +32,7 @@
                     @csrf
                     @method('PUT')
                     <strong> Icon :</strong>
-                    <input type="text" name="icon" value="{{ $article->icon }}" class="form-control"> <br>
+                    <input type="file" name="icon" value="{{ $article->icon }}" class="form-control"> <br>
 
                     <strong> title :</strong>
                     <input type="text" name="title" value="{{ $article->title }}" class="form-control"> <br>

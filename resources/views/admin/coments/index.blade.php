@@ -51,7 +51,7 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $coment->icon }}</td>
+                                                <td><img src="/icon/{{ $coment->icon }}" width="100px" alt=""></td>
                                                 <td>{{ $coment->content }}</td>
                                                 <td>{{ $coment->img }}</td>
                                                 <td>{{ $coment->surname }}</td>
@@ -83,6 +83,7 @@
 
                                     </tbody>
                                 </table>
+                                {{ $coments->links() }}
                             </div>
                         </div>
                     </div>

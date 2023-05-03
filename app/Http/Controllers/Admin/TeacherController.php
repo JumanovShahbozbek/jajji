@@ -12,7 +12,7 @@ class TeacherController extends Controller
     
     public function index()
     {
-        $teachers = DB::table('teachers')->orderBY('id', 'DESC')->get();
+        $teachers = Teacher::orderBY('id', 'DESC')->paginate(2);
 
         return view('admin.teachers.index', compact('teachers'));
     }
@@ -26,7 +26,17 @@ class TeacherController extends Controller
     
     public function store(Request $request)
     {
-        Teacher::create($request->all());
+        $requestData = $request->all();
+
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Teacher::create($requestData);
 
         return redirect(route('admin.teachers.index'));
     }

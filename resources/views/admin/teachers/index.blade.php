@@ -52,7 +52,7 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $teacher->icon }}</td>
+                                                <td><img src="/icon/{{ $teacher->icon }}" width="100px" alt=""></td>
                                                 <td>{{ $teacher->tgram }}</td>
                                                 <td>{{ $teacher->fbook }}</td>
                                                 <td>{{ $teacher->insta }}</td>
@@ -85,6 +85,7 @@
 
                                     </tbody>
                                 </table>
+                                {{ $teachers->links() }}
                             </div>
                         </div>
                     </div>

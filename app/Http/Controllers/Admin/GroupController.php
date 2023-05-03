@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
     public function index()
     {
-        $groups = DB::table('groups')->orderBY('id', 'DESC')->get();
+        $groups = Group::orderBY('id', 'DESC')->paginate(2);
 
         return view('admin.groups.index', compact('groups'));
     }
@@ -25,7 +24,17 @@ class GroupController extends Controller
     
     public function store(Request $request)
     {
-        Group::create($request->all());
+        $requestData = $request->all();
+        
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Group::create($requestData);
 
         return redirect(route('admin.groups.index'));
     }

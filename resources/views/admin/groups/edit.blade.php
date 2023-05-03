@@ -33,7 +33,7 @@
                     @method('PUT')
 
                     <strong> icon :</strong>
-                    <input type="text" name="icon" value="{{ $group->icon }}" class="form-control"> <br>
+                    <input type="file" name="icon" value="{{ $group->icon }}" class="form-control"> <br>
 
                     <strong> title :</strong>
                     <input type="text" name="title" value="{{ $group->title }}" class="form-control"> <br>

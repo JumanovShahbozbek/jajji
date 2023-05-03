@@ -33,7 +33,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">icon</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="icon">
+                                        <input type="file" class="form-control" name="icon">
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
@@ -51,25 +51,25 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">age</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="integer" class="form-control" name="age">
+                                        <input type="number" class="form-control" name="age">
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">seat</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="seat">
+                                        <input type="number" class="form-control" name="seat">
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">time</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="time">
+                                        <input type="number" class="form-control" name="time">
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">payment</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="payment">
+                                        <input type="number" class="form-control" name="payment">
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

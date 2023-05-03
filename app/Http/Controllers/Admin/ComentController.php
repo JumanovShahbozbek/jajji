@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Coment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ComentController extends Controller
 {
     public function index()
     {
-        $coments = DB::table('coments')->orderBY('id', 'DESC')->get();
+        $coments = Coment::orderBY('id', 'DESC')->paginate(2);
 
         return view('admin.coments.index', compact('coments'));
     }
@@ -25,7 +24,17 @@ class ComentController extends Controller
     
     public function store(Request $request)
     {
-        Coment::create($request->all());
+        $requestData = $request->all();
+        
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Coment::create($requestData);
 
         return redirect(route('admin.coments.index'));
     }

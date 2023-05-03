@@ -23,7 +23,7 @@
                                     <thead>
                                         <tr>
                                             <td>Icon : </td>
-                                            <td><b>{{ $article->icon }}</b></td>
+                                            <td><b><img src="/icon/{{ $article->icon }}" width="100px" alt=""></b></td>
                                         </tr>
 
                                         <tr>

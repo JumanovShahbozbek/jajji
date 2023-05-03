@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = DB::table('articles')->orderBY('id', 'DESC')->get();
+        $articles = Article::orderBY('id', 'DESC')->paginate(2);
 
         return view('admin.articles.index', compact('articles'));
     }
@@ -25,7 +25,17 @@ class ArticleController extends Controller
     
     public function store(Request $request)
     {
-        Article::create($request->all());
+        $requestData = $request->all();
+
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Article::create($requestData);
 
         return redirect(route('admin.articles.index'));
     }

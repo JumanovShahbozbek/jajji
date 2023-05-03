@@ -52,7 +52,7 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $group->icon }}</td>
+                                                <td><img src="/icon/{{ $group->icon }}" width="100px" alt=""></td>
                                                 <td>{{ $group->title }}</td>
                                                 <td>{{ $group->content }}</td>
                                                 <td>{{ $group->age }}</td>
@@ -85,6 +85,7 @@
 
                                     </tbody>
                                 </table>
+                                {{$groups->links()}}
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Info;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class InfoController extends Controller
 {
