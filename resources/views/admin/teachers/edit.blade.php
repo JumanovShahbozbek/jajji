@@ -52,9 +52,6 @@
                     <strong> payment :</strong>
                     <input type="text" name="subject" value="{{ $teacher->subject }}" class="form-control"> <br>
 
-                    {{-- <strong> Rasm(png yoki jpg) :</strong>
-                    <input type="file" name="icon" class="form-control"> <br> --}}
-
                     <input type="submit" value="O'zgartirish">
 
                 </form>

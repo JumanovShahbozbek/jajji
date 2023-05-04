@@ -26,6 +26,16 @@ class TeacherController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'icon' => 'required|max:2048',
+            'tgram' => 'required|max:20',
+            'fbook' => 'required|max:20',
+            'insta' => 'required|max:20',
+            'surname' => 'required|min:3|max:15',
+            'name' => 'required|min:3|max:15',
+            'subject' => 'required|min:5|max:15'
+        ]);
+
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
@@ -60,7 +70,27 @@ class TeacherController extends Controller
    
     public function update(Request $request, $id)
     {
-        Teacher::find($id)->update($request->all());
+        $request->validate([
+            'icon' => 'required|max:2048',
+            'tgram' => 'required|max:20',
+            'fbook' => 'required|max:20',
+            'insta' => 'required|max:20',
+            'surname' => 'required|min:3|max:15',
+            'name' => 'required|min:3|max:15',
+            'subject' => 'required|min:5|max:15'
+        ]);
+
+        $requestData = $request->all();
+
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Teacher::find($id)->update($requestData);
 
         return redirect(route('admin.teachers.index'));
     }

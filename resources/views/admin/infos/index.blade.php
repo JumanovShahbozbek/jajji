@@ -49,17 +49,20 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $info->title }}</td>
-                                                <td><img src="/icon/{{ $info->icon }}" alt="" width="100px"></td>
+                                                <td><img src="/icon/{{ $info->icon }}" alt="" width="70px"></td>
                                                 <td>{{ $info->description }}</td>
 
                                                 <td>
-                                                    <form action="{{ route('admin.infos.destroy', $info->id) }}" method="POST">
+                                                    <form action="{{ route('admin.infos.destroy', $info->id) }}"
+                                                        method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('admin.infos.show', $info->id) }}" class="btn btn-info">
+                                                        <a href="{{ route('admin.infos.show', $info->id) }}"
+                                                            class="btn btn-info">
                                                             <ion-icon class="fas fa-info-circle"></ion-icon>
                                                         </a>
-                                                        <a href="{{ route('admin.infos.edit', $info->id) }}" class="btn btn-primary">
+                                                        <a href="{{ route('admin.infos.edit', $info->id) }}"
+                                                            class="btn btn-primary">
                                                             <ion-icon class="far fa-edit"></ion-icon>
                                                         </a>
                                                         <button class="btn btn-danger"
@@ -74,7 +77,7 @@
 
                                     </tbody>
                                 </table>
-                                {{ $infos->links()}}
+                                {{ $infos->links() }}
                             </div>
                         </div>
                     </div>

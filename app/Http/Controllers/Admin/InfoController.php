@@ -24,6 +24,12 @@ class InfoController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|min:5|max:40',
+            'icon' => 'required|max:2048',
+            'description' => 'required|min:20|max:150',
+        ]);
+
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
@@ -58,9 +64,29 @@ class InfoController extends Controller
    
     public function update(Request $request, $id)
     {
-        Info::find($id)->update($request->all());
+        $request->validate([
+            'title' => 'required|min:5|max:40',
+            'icon' => 'required|max:2048',
+            'description' => 'required|min:20|max:150',
+        ]);
 
-        return redirect()->route('admin.infos.index');
+        $requestData = $request->all();
+
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Info::find($id)->update($requestData);
+
+        return redirect(route('admin.infos.index'));
+
+        /* Info::find($id)->update($request->all());
+
+        return redirect()->route('admin.infos.index'); */
     }
 
     

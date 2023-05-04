@@ -24,6 +24,15 @@ class ComentController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'icon' => 'required|max:2048',
+            'content' => 'required|min:10|max:100',
+            'img' => 'required|max:20',
+            'surname' => 'required|min:4|max:15',
+            'name' => 'required|min:3|max:15',
+            'subject' => 'required|min:5|max:15',
+        ]);
+
         $requestData = $request->all();
         
         if($request->hasFile('icon'))
@@ -58,7 +67,26 @@ class ComentController extends Controller
     
     public function update(Request $request, $id)
     {
-        Coment::find($id)->update($request->all());
+        $request->validate([
+            'icon' => 'required|max:2048',
+            'content' => 'required|min:10|max:100',
+            'img' => 'required|max:20',
+            'surname' => 'required|min:4|max:15',
+            'name' => 'required|min:3|max:15',
+            'subject' => 'required|min:5|max:15',
+        ]);
+
+        $requestData = $request->all();
+        
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Coment::find($id)->update($requestData);
 
         return redirect()->route('admin.coments.index');
     }

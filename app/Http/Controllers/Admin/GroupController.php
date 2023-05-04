@@ -24,6 +24,16 @@ class GroupController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'icon' => 'required|max:2048',
+            'title' => 'required|min:5|max:30',
+            'content' => 'required|min:15|max:100',
+            'age' => 'required|max:15',
+            'seat' => 'required|max:15',
+            'time' => 'required|max:15',
+            'payment' => 'required|max:15',
+        ]);
+
         $requestData = $request->all();
         
         if($request->hasFile('icon'))
@@ -58,9 +68,29 @@ class GroupController extends Controller
     
     public function update(Request $request, $id)
     {
-        Group::find($id)->update($request->all());
+        $request->validate([
+            'icon' => 'required|max:2048',
+            'title' => 'required|min:5|max:30',
+            'content' => 'required|min:15|max:100',
+            'age' => 'required|max:15',
+            'seat' => 'required|max:15',
+            'time' => 'required|max:15',
+            'payment' => 'required|max:15',
+        ]);
 
-        return redirect()->route('admin.groups.index');
+        $requestData = $request->all();
+        
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Group::find($id)->update($requestData);
+
+        return redirect(route('admin.groups.index'));
     }
 
     

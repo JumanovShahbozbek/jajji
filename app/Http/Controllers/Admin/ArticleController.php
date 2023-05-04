@@ -25,6 +25,13 @@ class ArticleController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'icon' => 'required|max:2048',
+            'title' => 'required|max:20',
+            'name' => 'required|max:15',
+            'content' => 'required|max:100'
+        ]);
+
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
@@ -59,7 +66,24 @@ class ArticleController extends Controller
     
     public function update(Request $request, $id)
     {
-        Article::find($id)->update($request->all());
+        $request->validate([
+            'icon' => 'required|max:2048',
+            'title' => 'required|max:20',
+            'name' => 'required|max:15',
+            'content' => 'required|max:100'
+        ]);
+
+        $requestData = $request->all();
+
+        if($request->hasFile('icon'))
+        {
+            $file = request()->file('icon');
+            $fileName = time().'-'.$file->getClientOriginalName();
+            $file->move('icon/', $fileName);
+            $requestData['icon'] = $fileName;
+        }
+
+        Article::find($id)->update($requestData);
 
         return redirect()->route('admin.articles.index');
     }
