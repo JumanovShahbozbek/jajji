@@ -34,42 +34,63 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">icon</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="file" class="form-control" name="icon">
+                                        @error('icon')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">tgram</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="tgram">
+                                        @error('tgram')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">fbook</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="fbook">
+                                        @error('fbook')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">insta</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="integer" class="form-control" name="insta">
+                                        @error('insta')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">surname</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="surname">
+                                        @error('surname')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">name</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="name">
+                                        @error('name')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">subject</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="subject">
+                                        @error('subject')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

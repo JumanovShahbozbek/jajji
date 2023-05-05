@@ -33,12 +33,21 @@
                     @method('PUT')
                     <strong> title :</strong>
                     <input type="text" name="title" value="{{ $info->title }}" class="form-control"> <br>
+                    @error('title')
+                        {{$message}}
+                    @enderror
 
                     <strong> Rasm(png yoki jpg) :</strong>
                     <input type="file" name="icon" value="{{ $info->icon }}" class="form-control"> <br>
+                    @error('icon')
+                        {{$message}}
+                    @enderror
 
                     <strong> Description :</strong>
                     <input type="text" name="description" value="{{ $info->description }}" class="form-control"> <br>
+                    @error('description')
+                        {{$message}}
+                    @enderror
 
                     <input type="submit" value="O'zgartirish">
 

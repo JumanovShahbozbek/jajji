@@ -34,42 +34,63 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">icon</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="file" class="form-control" name="icon">
+                                        @error('icon')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">title</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="title">
+                                        @error('title')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">content</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" class="form-control" name="content">
+                                        @error('content')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">age</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="number" class="form-control" name="age">
+                                        @error('age')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">seat</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="number" class="form-control" name="seat">
+                                        @error('seat')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">time</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="number" class="form-control" name="time">
+                                        @error('time')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">payment</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="number" class="form-control" name="payment">
+                                        @error('payment')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">

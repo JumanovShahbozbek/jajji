@@ -33,15 +33,27 @@
                     @method('PUT')
                     <strong> Icon :</strong>
                     <input type="file" name="icon" value="{{ $article->icon }}" class="form-control"> <br>
+                    @error('icon')
+                        {{ $message }}
+                    @enderror
 
                     <strong> title :</strong>
                     <input type="text" name="title" value="{{ $article->title }}" class="form-control"> <br>
+                    @error('title')
+                        {{ $message }}
+                    @enderror
 
                     <strong> Name :</strong>
                     <input type="text" name="name" value="{{ $article->name }}" class="form-control"> <br>
+                    @error('name')
+                        {{ $message }}
+                    @enderror
 
                     <strong> content :</strong>
                     <input type="text" name="content" value="{{ $article->content }}" class="form-control"> <br>
+                    @error('content')
+                        {{ $message }}
+                    @enderror
 
                     <input type="submit" value="O'zgartirish">
 
