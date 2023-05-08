@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Info;
 use Illuminate\Http\Request;
+use App\Http\Requests\InfoStoreRequest;
 
 class InfoController extends Controller
 {
@@ -22,22 +23,13 @@ class InfoController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(InfoStoreRequest $request)
     {
-        $request->validate([
-            'title' => 'required|min:5|max:40',
-            'icon' => 'required|max:2048',
-            'description' => 'required|min:20|max:150',
-        ]);
-
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
         {
-            $file = request()->file('icon');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('icon/', $fileName);
-            $requestData['icon'] = $fileName;
+            $requestData['icon'] = $this->upload_file();
         }
 
         Info::create($requestData);
@@ -62,31 +54,18 @@ class InfoController extends Controller
     }
 
    
-    public function update(Request $request, $id)
+    public function update(InfoStoreRequest $request, $id)
     {
-        $request->validate([
-            'title' => 'required|min:5|max:40',
-            'icon' => 'required|max:2048',
-            'description' => 'required|min:20|max:150',
-        ]);
-
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
         {
-            $file = request()->file('icon');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('icon/', $fileName);
-            $requestData['icon'] = $fileName;
+           $requestData['icon'] = $this->upload_file();
         }
 
         Info::find($id)->update($requestData);
 
         return redirect(route('admin.infos.index'));
-
-        /* Info::find($id)->update($request->all());
-
-        return redirect()->route('admin.infos.index'); */
     }
 
     
@@ -95,5 +74,13 @@ class InfoController extends Controller
         Info::find($id)->delete();
 
         return redirect()->route('admin.infos.index');
+    }
+
+    public function upload_file()
+    {
+        $file = request()->file('icon');
+        $fileName = time().'-'.$file->getClientOriginalName();
+        $file->move('icon/', $fileName);
+        return $fileName;
     }
 }

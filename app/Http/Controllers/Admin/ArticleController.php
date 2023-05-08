@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ArticleStoreRequest;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
@@ -16,30 +17,19 @@ class ArticleController extends Controller
         return view('admin.articles.index', compact('articles'));
     }
 
-   
+
     public function create()
     {
         return view('admin.articles.create');
     }
 
-    
-    public function store(Request $request)
-    {
-        $request->validate([
-            'icon' => 'required|max:2048',
-            'title' => 'required|max:20',
-            'name' => 'required|max:15',
-            'content' => 'required|max:100'
-        ]);
 
+    public function store(ArticleStoreRequest $request)
+    {
         $requestData = $request->all();
 
-        if($request->hasFile('icon'))
-        {
-            $file = request()->file('icon');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('icon/', $fileName);
-            $requestData['icon'] = $fileName;
+        if ($request->hasFile('icon')) {
+            $requestData['icon'] = $this->upload_file();
         }
 
         Article::create($requestData);
@@ -47,7 +37,7 @@ class ArticleController extends Controller
         return redirect(route('admin.articles.index'));
     }
 
-    
+
     public function show($id)
     {
         $article = Article::find($id);
@@ -55,7 +45,7 @@ class ArticleController extends Controller
         return view('admin.articles.show', compact('article'));
     }
 
-    
+
     public function edit($id)
     {
         $article = Article::find($id);
@@ -63,24 +53,13 @@ class ArticleController extends Controller
         return view('admin.articles.edit', compact('article'));
     }
 
-    
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'icon' => 'required|max:2048',
-            'title' => 'required|max:20',
-            'name' => 'required|max:15',
-            'content' => 'required|max:100'
-        ]);
 
+    public function update(ArticleStoreRequest $request, $id)
+    {
         $requestData = $request->all();
 
-        if($request->hasFile('icon'))
-        {
-            $file = request()->file('icon');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('icon/', $fileName);
-            $requestData['icon'] = $fileName;
+        if ($request->hasFile('icon')) {
+            $requestData['icon'] = $this->upload_file();
         }
 
         Article::find($id)->update($requestData);
@@ -88,11 +67,20 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles.index');
     }
 
-    
+
     public function destroy($id)
     {
         Article::find($id)->delete();
 
         return redirect(route('admin.articles.index'));
+    }
+
+    public function upload_file()
+    {
+        $file = request()->file('icon');
+        $fileName = time() . '-' . $file->getClientOriginalName();
+        $file->move('icon/', $fileName);
+        $requestData['icon'] = $fileName;
+        return $fileName;
     }
 }

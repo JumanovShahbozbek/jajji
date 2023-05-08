@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use Illuminate\Http\Request;
+use App\Http\Requests\GroupStoreRequest;
 
 class GroupController extends Controller
 {
@@ -22,26 +23,13 @@ class GroupController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(GroupStoreRequest $request)
     {
-        $request->validate([
-            'icon' => 'required|max:2048',
-            'title' => 'required|min:5|max:30',
-            'content' => 'required|min:15|max:100',
-            'age' => 'required|max:15',
-            'seat' => 'required|max:15',
-            'time' => 'required|max:15',
-            'payment' => 'required|max:15',
-        ]);
-
         $requestData = $request->all();
         
         if($request->hasFile('icon'))
         {
-            $file = request()->file('icon');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('icon/', $fileName);
-            $requestData['icon'] = $fileName;
+           $requestData['icon'] = $this->upload_file();
         }
 
         Group::create($requestData);
@@ -66,26 +54,13 @@ class GroupController extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(GroupStoreRequest $request, $id)
     {
-        $request->validate([
-            'icon' => 'required|max:2048',
-            'title' => 'required|min:5|max:30',
-            'content' => 'required|min:15|max:100',
-            'age' => 'required|max:15',
-            'seat' => 'required|max:15',
-            'time' => 'required|max:15',
-            'payment' => 'required|max:15',
-        ]);
-
         $requestData = $request->all();
         
         if($request->hasFile('icon'))
         {
-            $file = request()->file('icon');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('icon/', $fileName);
-            $requestData['icon'] = $fileName;
+           $requestData['icon'] = $this->upload_file(); 
         }
 
         Group::find($id)->update($requestData);
@@ -99,5 +74,14 @@ class GroupController extends Controller
         Group::find($id)->delete();
 
         return redirect()->route('admin.groups.index');
+    }
+
+    public function upload_file()
+    {
+        $file = request()->file('icon');
+        $fileName = time().'-'.$file->getClientOriginalName();
+        $file->move('icon/', $fileName);
+        $requestData['icon'] = $fileName;
+        return $fileName;
     }
 }
