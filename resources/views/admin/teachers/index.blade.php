@@ -30,9 +30,9 @@
                                                 #
                                             </th>
                                             <th>icon</th>
-                                            <th>tgram</th>
-                                            <th>fbook</th>
-                                            <th>insta</th>
+                                            <th>telegram</th>
+                                            <th>facebook</th>
+                                            <th>instagram</th>
                                             <th>surname</th>
                                             <th>name</th>
                                             <th>subject</th>
@@ -59,8 +59,8 @@
                                                 <td>{{ $teacher->surname }}</td>
                                                 <td>{{ $teacher->name }}</td>
                                                 <td>{{ $teacher->subject }}</td>
-
-                                                <td>
+                                                <td><br><br>
+                                                    
                                                     <form action="{{ route('admin.teachers.destroy', $teacher->id) }}"
                                                         method="POST">
                                                         @csrf
