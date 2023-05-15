@@ -33,7 +33,8 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="title">
+                                        <input type="text" class="form-control" name="title"
+                                            value="{{ old('title') }}">
                                         @error('title')
                                             {{ $message }}
                                         @enderror
@@ -51,7 +52,8 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">description</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="description">
+                                        <input type="text" class="form-control" name="description"
+                                            value="{{ old('description') }}">
                                         @error('description')
                                             {{ $message }}
                                         @enderror

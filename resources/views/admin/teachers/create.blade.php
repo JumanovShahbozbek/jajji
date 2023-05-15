@@ -42,7 +42,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">tgram</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="tgram">
+                                        <input type="text" class="form-control" value="{{ old('tgarm') }}" name="tgram">
                                         @error('tgram')
                                             {{ $message }}
                                         @enderror
@@ -51,7 +51,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">fbook</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="fbook">
+                                        <input type="text" class="form-control" value="{{ old('fbook') }}" name="fbook">
                                         @error('fbook')
                                             {{ $message }}
                                         @enderror
@@ -60,7 +60,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">insta</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="integer" class="form-control" name="insta">
+                                        <input type="integer" class="form-control" value="{{ old('insta') }}" name="insta">
                                         @error('insta')
                                             {{ $message }}
                                         @enderror
@@ -69,7 +69,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">surname</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="surname">
+                                        <input type="text" class="form-control" value="{{ old('surname') }}" name="surname">
                                         @error('surname')
                                             {{ $message }}
                                         @enderror
@@ -78,7 +78,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">name</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="name">
+                                        <input type="text" class="form-control" value="{{ old('name') }}" name="name">
                                         @error('name')
                                             {{ $message }}
                                         @enderror
@@ -87,7 +87,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">subject</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="subject">
+                                        <input type="text" class="form-control" value="{{ old('subject') }}" name="subject">
                                         @error('subject')
                                             {{ $message }}
                                         @enderror

@@ -42,7 +42,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="title">
+                                        <input type="text" class="form-control" value="{{ old('title') }}" name="title">
                                         @error('title')
                                             {{ $message }}
                                         @enderror
@@ -51,7 +51,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">content</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="content">
+                                        <input type="text" class="form-control" value="{{ old('content') }}" name="content">
                                         @error('content')
                                             {{ $message }}
                                         @enderror
@@ -60,7 +60,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">age</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="number" class="form-control" name="age">
+                                        <input type="number" class="form-control" value="{{ old('age') }}" name="age">
                                         @error('age')
                                             {{ $message }}
                                         @enderror
@@ -69,7 +69,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">seat</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="number" class="form-control" name="seat">
+                                        <input type="number" class="form-control" value="{{ old('seat') }}" name="seat">
                                         @error('seat')
                                             {{ $message }}
                                         @enderror
@@ -78,7 +78,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">time</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="number" class="form-control" name="time">
+                                        <input type="number" class="form-control" value="{{ old('time') }}" name="time">
                                         @error('time')
                                             {{ $message }}
                                         @enderror
@@ -87,7 +87,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">payment</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="number" class="form-control" name="payment">
+                                        <input type="number" class="form-control"value="{{ old('payment') }}" name="payment">
                                         @error('payment')
                                             {{ $message }}
                                         @enderror

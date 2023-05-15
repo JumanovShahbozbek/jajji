@@ -42,7 +42,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">title</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="title">
+                                        <input type="text" class="form-control" value="{{ old('title') }}" name="title">
                                         @error('title')
                                             {{ $message }}
                                         @enderror
@@ -51,7 +51,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">name</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="name">
+                                        <input type="text" class="form-control" value="{{ old('name') }}" name="name">
                                         @error('name')
                                             {{ $message }}
                                         @enderror
@@ -60,7 +60,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">content</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="content">
+                                        <input type="text" class="form-control" value="{{ old('content') }}" name="content">
                                         @error('content')
                                             {{ $message }}
                                         @enderror
