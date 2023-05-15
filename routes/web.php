@@ -1,15 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\ArticleController;
-use App\Http\Controllers\Admin\ComentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Admin\InfoController;
-use App\Http\Controllers\Admin\GroupController;
-use App\Http\Controllers\Admin\TeacherController;
+use App\Http\Controllers\Admin\HumanController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\NumberController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,10 +38,10 @@ Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function ()
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::resource('/infos', InfoController::class);
-    Route::resource('/groups', GroupController::class);
-    Route::resource('/teachers', TeacherController::class);
-    Route::resource('/coments', ComentController::class);
-    Route::resource('/articles', ArticleController::class);
+    Route::resource('/humans', HumanController::class);
+    Route::resource('/numbers', NumberController::class);
+    Route::resource('/categories', CategoryController::class);
+    Route::resource('/posts', PostController::class);
 });
 
 Auth::routes();

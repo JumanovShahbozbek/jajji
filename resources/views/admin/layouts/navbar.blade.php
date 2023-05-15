@@ -16,20 +16,24 @@
                 <a href="{{ route('admin.infos.index') }}"><i data-feather="briefcase"></i><span>Info</span></a>
             </li>
 
-            <li class="dropdown @yield('groups')">
-                <a href="{{ route('admin.groups.index') }}"><i data-feather="briefcase"></i><span>Groups</span></a>
+            <li class="dropdown">
+                <a href="#"><i></i><span></span></a>
             </li>
 
-            <li class="dropdown @yield('teachers')">
-                <a href="{{ route('admin.teachers.index') }}"><i data-feather="briefcase"></i><span>Teachers</span></a>
+            <li class="dropdown @yield('humans')">
+                <a href="{{ route('admin.humans.index') }}"><i data-feather="briefcase"></i><span>Odamlar</span></a>
             </li>
 
-            <li class="dropdown @yield('coments')">
-                <a href="{{ route('admin.coments.index') }}"><i data-feather="briefcase"></i><span>Coments</span></a>
+            <li class="dropdown @yield('numbers')">
+                <a href="{{ route('admin.numbers.index') }}"><i data-feather="briefcase"></i><span>Nomerlar</span></a>
             </li>
 
-            <li class="dropdown @yield('articles')">
-                <a href="{{ route('admin.articles.index') }}"><i data-feather="briefcase"></i><span>Articles</span></a>
+            <li class="dropdown @yield('categories')">
+                <a href="{{ route('admin.categories.index') }}"><i data-feather="briefcase"></i><span>Category</span></a>
+            </li>
+
+            <li class="dropdown @yield('posts')">
+                <a href="{{ route('admin.posts.index') }}"><i data-feather="briefcase"></i><span>Posts</span></a>
             </li>
 
         </ul>
