@@ -23,7 +23,7 @@ class InfoController extends Controller
     }
 
     
-    public function store(InfoStoreRequest $request)
+    public function store(InfoStoreRequest $request, Info $info)
     {
         $requestData = $request->all();
 
@@ -54,24 +54,34 @@ class InfoController extends Controller
     }
 
    
-    public function update(InfoStoreRequest $request, $id)
+    public function update(InfoStoreRequest $request, Info $info)
     {
         $requestData = $request->all();
 
         if($request->hasFile('icon'))
         {
-           $requestData['icon'] = $this->upload_file();
+            if(isset($info->icon) && file_exists(public_path('/icon/'. $info->icon)))
+            {
+                unlink(public_path('/icon/'. $info->icon));
+            }
+
+            $requestData['icon'] = $this->upload_file();
         }
 
-        Info::find($id)->update($requestData);
+        $info->update($requestData);
 
         return redirect(route('admin.infos.index'));
     }
 
     
-    public function destroy($id)
+    public function destroy( Info $info)
     {
-        Info::find($id)->delete();
+        if(isset($info->icon) && file_exists(public_path('/icon/'. $info->icon)))
+        {
+            unlink(public_path('/icon/'. $info->icon));
+        }
+
+        $info->delete();
 
         return redirect()->route('admin.infos.index');
     }
@@ -82,5 +92,5 @@ class InfoController extends Controller
         $fileName = time().'-'.$file->getClientOriginalName();
         $file->move('icon/', $fileName);
         return $fileName;
-    }
+    }  
 }

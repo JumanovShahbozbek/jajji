@@ -29,8 +29,7 @@ class TeacherController extends Controller
     {
         $requestData = $request->all();
 
-        if ($request->hasFile('icon')) 
-        {
+        if ($request->hasFile('icon')) {
             $requestData['icon'] = $this->upload_file();
         }
 
@@ -56,24 +55,34 @@ class TeacherController extends Controller
     }
 
 
-    public function update(TeacherStoreRequest $request, $id)
+    public function update(TeacherStoreRequest $request, Teacher $teacher)
     {
         $requestData = $request->all();
 
         if ($request->hasFile('icon')) 
         {
-           $requestData['icon'] = $this->upload_file();
+            if (isset($teacher->icon) && file_exists(public_path('/icon/' . $teacher->icon))) 
+            {
+                unlink(public_path('/icon/' . $teacher->icon));
+            }
+
+            $requestData['icon'] = $this->upload_file();
         }
 
-        Teacher::find($id)->update($requestData);
+        $teacher->update($requestData);
 
         return redirect(route('admin.teachers.index'));
     }
 
 
-    public function destroy($id)
+    public function destroy(Teacher $teacher)
     {
-        Teacher::find($id)->delete();
+        if(isset($teacher->icon) && file_exists(public_path('/icon/'. $teacher->icon)))
+        {
+            unlink(public_path('/icon/'. $teacher->icon));
+        }
+
+        $teacher->delete();
 
         return redirect(route('admin.teachers.index'));
     }

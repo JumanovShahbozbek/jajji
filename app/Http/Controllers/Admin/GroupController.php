@@ -54,24 +54,34 @@ class GroupController extends Controller
     }
 
     
-    public function update(GroupStoreRequest $request, $id)
+    public function update(GroupStoreRequest $request, Group $group)
     {
         $requestData = $request->all();
         
         if($request->hasFile('icon'))
         {
-           $requestData['icon'] = $this->upload_file(); 
+            if(isset($group->icon) && file_exists(public_path('/icon/'. $group->icon)))
+            {
+            unlink(public_path('/icon/'. $group->icon));
+            }
+
+            $requestData['icon'] = $this->upload_file(); 
         }
 
-        Group::find($id)->update($requestData);
+        $group->update($requestData);
 
         return redirect(route('admin.groups.index'));
     }
 
     
-    public function destroy($id)
+    public function destroy(Group $group)
     {
-        Group::find($id)->delete();
+        if(isset($group->icon) && file_exists(public_path('/icon/'. $group->icon)))
+        {
+            unlink(public_path('/icon/'. $group->icon));
+        }
+
+        $group->delete();
 
         return redirect()->route('admin.groups.index');
     }

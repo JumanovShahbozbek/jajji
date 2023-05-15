@@ -54,23 +54,33 @@ class ArticleController extends Controller
     }
 
 
-    public function update(ArticleStoreRequest $request, $id)
+    public function update(ArticleStoreRequest $request, Article $article)
     {
         $requestData = $request->all();
 
-        if ($request->hasFile('icon')) {
+        if ($request->hasFile('icon')) 
+        {
+            if(isset($article->icon) && file_exists(public_path('/icon/'. $article->icon)))
+            {
+                unlink(public_path('/icon/'. $article->icon));
+            }
+
             $requestData['icon'] = $this->upload_file();
         }
 
-        Article::find($id)->update($requestData);
+        $article->update($requestData);
 
         return redirect()->route('admin.articles.index');
     }
 
 
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        Article::find($id)->delete();
+        if(isset($article->icon) && file_exists(public_path('/icon/'. $article->icon)))
+        {
+            unlink(public_path('/icon/'. $article->icon));
+        }
+        $article->delete();
 
         return redirect(route('admin.articles.index'));
     }

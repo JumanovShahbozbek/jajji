@@ -53,23 +53,34 @@ class ComentController extends Controller
     }
 
 
-    public function update(ComentStoreRequest $request, $id)
+    public function update(ComentStoreRequest $request, Coment $coment)
     {
         $requestData = $request->all();
 
-        if ($request->hasFile('icon')) {
+        if ($request->hasFile('icon')) 
+        {
+            if(isset($coment->icon) && file_exists(public_path('/icon/'. $coment->icon)))
+            {
+                unlink(public_path('/icon/'. $coment->icon));
+            }
+
             $requestData['icon'] = $this->upload_file();
         }
 
-        Coment::find($id)->update($requestData);
+        $coment->update($requestData);
 
         return redirect()->route('admin.coments.index');
     }
 
 
-    public function destroy($id)
+    public function destroy(Coment $coment)
     {
-        Coment::find($id)->delete();
+        if(isset($coment->icon) && file_exists(public_path('/icon/'. $coment->icon)))
+        {
+            unlink(public_path('/icon/'. $coment->icon));
+        }
+
+        $coment->delete();
 
         return redirect()->route('admin.coments.index');
     }

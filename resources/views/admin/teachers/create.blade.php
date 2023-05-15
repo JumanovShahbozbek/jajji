@@ -42,7 +42,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">tgram</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('tgarm') }}" name="tgram">
+                                        <input type="text" class="form-control" value="{{ old('tgram') }}" name="tgram">
                                         @error('tgram')
                                             {{ $message }}
                                         @enderror
