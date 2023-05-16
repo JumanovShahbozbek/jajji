@@ -29,6 +29,7 @@
                                             <th class="text-center">
                                                 #
                                             </th>
+                                            <th>Ismi</th>
                                             <th>Nomeri</th>
                                             <th>Action</th>
                                         </tr>
@@ -41,23 +42,24 @@
                                             </tr>
                                         @endif
 
-                                        @foreach ($numbers as $number)
+                                        @foreach ($numbers as $item)
                                             <tr>
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $number->number }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <th> {{ $item->human->name ?? 'olinmagan'}} </th>
                                                 
                                                 <td>
-                                                    <form action="{{ route('admin.numbers.destroy', $number->id) }}"
+                                                    <form action="{{ route('admin.numbers.destroy', $item->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('admin.numbers.show', $number->id) }}"
+                                                        <a href="{{ route('admin.numbers.show', $item->id) }}"
                                                             class="btn btn-info">
                                                             <ion-icon class="fas fa-info-circle"></ion-icon>
                                                         </a>
-                                                        <a href="{{ route('admin.numbers.edit', $number->id) }}"
+                                                        <a href="{{ route('admin.numbers.edit', $item->id) }}"
                                                             class="btn btn-primary">
                                                             <ion-icon class="far fa-edit"></ion-icon>
                                                         </a>

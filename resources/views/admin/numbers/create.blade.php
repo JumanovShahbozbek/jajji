@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('categories')
+@section('numbers')
     active
 @endsection
 
@@ -28,14 +28,14 @@
                             <h4>Ma'lumot qo'shish</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.numbers.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Ismi</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="category"
-                                            value="{{ old('category') }}">
-                                        @error('category')
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ old('name') }}">
+                                        @error('name')
                                             {{ $message }}
                                         @enderror
                                     </div>

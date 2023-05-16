@@ -37,7 +37,24 @@
                         {{ $message }}
                     @enderror
 
-                    <input type="submit" value="O'zgartirish">
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name</label>
+                        <div class="col-sm-12 col-md-7">
+                          <select name="number_id" class="form-control" id="">
+                            <option value="{{ $human->number->id }}"> {{$human->number->name}} </option>
+                            @foreach ($numbers as $item)
+                                <option value="{{ $item->id }}"> {{ $item->name }} </option>
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                        <div class="col-sm-12 col-md-7">
+                          <button class="btn btn-primary" value="Ozgartirish">Submit</button>
+                        </div>
+                      </div>
 
                 </form>
             </div>

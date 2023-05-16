@@ -10,4 +10,9 @@ class Human extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function number()
+    {
+        return $this->belongsTo(Number::class);
+    }
 }

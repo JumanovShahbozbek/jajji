@@ -30,6 +30,7 @@
                                                 #
                                             </th>
                                             <th>Ismi</th>
+                                            <th>Raqami</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -47,7 +48,8 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $human->name }}</td>
-                                                
+                                                <th>{{ $human->number->name ?? 'Boglanmagan' }}</th>
+
                                                 <td>
                                                     <form action="{{ route('admin.humans.destroy', $human->id) }}"
                                                         method="POST">

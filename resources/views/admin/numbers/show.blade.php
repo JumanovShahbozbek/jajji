@@ -23,7 +23,7 @@
                                     <thead>
                                         <tr>
                                             <td>Info : </td>
-                                            <td><b>{{ $number->number }}</b></td>
+                                            <td><b>{{ $number->name }}</b></td>
                                         </tr>
 
                                 </table>

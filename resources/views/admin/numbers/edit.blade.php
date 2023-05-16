@@ -32,8 +32,8 @@
                     @csrf
                     @method('PUT')
                     <strong> title :</strong>
-                    <input type="number" name="number" value="{{ $number->number }}" class="form-control"> <br>
-                    @error('number')
+                    <input type="number" name="name" value="{{ $number->name }}" class="form-control"> <br>
+                    @error('name')
                         {{ $message }}
                     @enderror
 
