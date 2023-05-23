@@ -46,7 +46,7 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $category->category }}</td>
+                                                <td>{{ $category->name }}</td>
                                                 
                                                 <td>
                                                     <form action="{{ route('admin.categories.destroy', $category->id) }}"

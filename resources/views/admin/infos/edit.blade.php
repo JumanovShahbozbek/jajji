@@ -31,6 +31,7 @@
                 <form class="create__inputs" action="{{route('admin.infos.update', $info->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    
                     <strong> title :</strong>
                     <input type="text" name="title" value="{{ $info->title }}" class="form-control"> <br>
                     @error('title')

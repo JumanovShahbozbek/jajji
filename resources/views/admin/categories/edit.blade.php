@@ -31,9 +31,10 @@
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    
                     <strong> Category :</strong>
-                    <input type="text" name="category" value="{{ $category->category }}" class="form-control"> <br>
-                    @error('category')
+                    <input type="text" name="name" value="{{ $category->name }}" class="form-control"> <br>
+                    @error('name')
                         {{ $message }}
                     @enderror
 

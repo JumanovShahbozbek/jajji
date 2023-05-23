@@ -30,6 +30,7 @@
                                                 #
                                             </th>
                                             <th>Posts</th>
+                                            <th>Category</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -47,6 +48,7 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $post->name }}</td>
+                                                <th>{{ $post->category->name ?? 'Boglanmagan' }}</th>
                                                 
                                                 <td>
                                                     <form action="{{ route('admin.posts.destroy', $post->id) }}"

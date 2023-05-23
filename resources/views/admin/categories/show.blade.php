@@ -23,7 +23,7 @@
                                     <thead>
                                         <tr>
                                             <td>Category : </td>
-                                            <td><b>{{ $category->category }}</b></td>
+                                            <td><b>{{ $category->name }}</b></td>
                                         </tr>
 
                                 </table>

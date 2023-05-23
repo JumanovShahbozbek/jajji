@@ -24,6 +24,7 @@
                                         <tr>
                                             <td>Post : </td>
                                             <td><b>{{ $post->name }}</b></td>
+                                            <th><b>{{ $post->category->name}}</b></th>
                                         </tr>
 
                                 </table>

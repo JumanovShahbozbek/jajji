@@ -31,13 +31,32 @@
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <strong> Posts :</strong>
+                    <strong> Name :</strong>
                     <input type="text" name="name" value="{{ $post->name }}" class="form-control"> <br>
                     @error('name')
                         {{ $message }}
                     @enderror
 
-                    <input type="submit" value="O'zgartirish">
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name</label>
+                        <div class="col-sm-12 col-md-7">
+                          <select name="category_id" class="form-control" id="">
+                            <option value="{{ $post->category_id }}"> {{$post->category->name}} </option>
+
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"> {{ $category->name }} </option>
+                            @endforeach
+
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                        <div class="col-sm-12 col-md-7">
+                          <button class="btn btn-primary" value="Ozgartirish">Submit</button>
+                        </div>
+                      </div>
 
                 </form>
             </div>
