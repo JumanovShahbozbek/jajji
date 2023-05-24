@@ -30,21 +30,23 @@
                         <div class="card-body">
                             <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Post</label>
-
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="name"
-                                            value="{{ old('name') }}">
-                                        @error('name')
+
+                                        <input type="text" class="form-control" name="title"
+                                            value="{{ old('title') }}">
+                                        @error('title')
                                             {{ $message }}
                                         @enderror
+                                        
                                     </div>
                                 </div>
                                 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
-                                    <div class="col-sm-12 col-md-7">
+                                    <div class="col-sm-12 col-md-7">    
                                         <select name="category_id" class="form-control">
 
                                             @foreach ($categories as $item)

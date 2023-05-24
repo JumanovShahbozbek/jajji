@@ -5,14 +5,21 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
+
 
 class CategoryController extends Controller
 {
     public function index()
     {
         $categories = Category::orderBy('id', 'DESC')->paginate(3);
-
-        return view('admin.categories.index', compact('categories'));
+        
+        $categories = DB::table('categories')
+        ->leftJoin('posts', 'categories.id', '=', 'posts.category_id')
+        ->select('categories.*', 'posts.*')->get();
+        return $categories;
+        // return view('admin.categories.index', compact('categories'));
     }
 
     public function create()
@@ -29,9 +36,11 @@ class CategoryController extends Controller
 
     public function show($id)
     {
+        /* $posts = Post::find($id); */
+
         $category = Category::find($id);
 
-        return view('admin.categories.show', compact('category'));
+        return view('admin.categories.show', compact('category',/*  'posts' */));
     }
 
     public function edit($id)

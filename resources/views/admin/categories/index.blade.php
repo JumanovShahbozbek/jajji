@@ -30,6 +30,7 @@
                                                 #
                                             </th>
                                             <th>Category</th>
+                                            <th>Maqolaa</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -47,6 +48,11 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $category->name }}</td>
+                                                <td>
+                                                    @foreach ($category->posts as $item)
+                                                        {{ $item->title }}
+                                                    @endforeach
+                                                </td>
                                                 
                                                 <td>
                                                     <form action="{{ route('admin.categories.destroy', $category->id) }}"

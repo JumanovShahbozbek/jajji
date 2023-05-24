@@ -22,10 +22,13 @@
                                 <table class="table table-striped" id="table-1">
                                     <thead>
                                         <tr>
-                                            <td>Category : </td>
+                                            <td>Category: </td>
                                             <td><b>{{ $category->name }}</b></td>
                                         </tr>
-
+                                        {{-- <tr>
+                                            <td>Maqola:</td>
+                                            <td><b>{{ $posts->title ?? 'boglanmagan'}}</b></td>
+                                        </tr> --}}
                                 </table>
                             </div>
                         </div>

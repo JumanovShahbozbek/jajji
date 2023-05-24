@@ -6,12 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id', 'DESC')->paginate(3);
+        $posts = Post::orderBy('id', 'DESC')->paginate(7);
+        $posts = DB::table('posts')
+
+        ->join('categories', 'posts.category_id', '=', 'categories.id')
+        ->select('posts.*', 'categories.name')->paginate(10);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -19,6 +24,7 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+        
         return view('admin.posts.create', compact('categories'));
     }
 

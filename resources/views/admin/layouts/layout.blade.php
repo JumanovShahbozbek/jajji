@@ -1,4 +1,6 @@
 <!-- index.html  21 Nov 2019 03:44:50 GMT -->
+{{-- <!DOCTYPE html>
+<html lang="en"> --}}
 
 <head>
     <meta charset="UTF-8">
@@ -20,6 +22,12 @@
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="/admin/assets/css/custom.css">
     <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+
+    <!-- Boxicons -->
+    {{-- <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css"
+        rel="stylesheet"> --}}
+
 </head>
 
 <body>
@@ -51,7 +59,10 @@
                     </ul>
                 </div>
                 <ul class="navbar-nav navbar-right">
-                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+
+                    {{-- message bolimi start --}}
+
+                    {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                             class="nav-link nav-link-lg message-toggle"><i data-feather="mail"></i>
                             <span class="badge headerBadge1">
                                 6 </span> </a>
@@ -124,8 +135,13 @@
                                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
-                    </li>
-                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                    </li> --}}
+
+                    {{-- message bolimi end --}}
+
+                    {{-- Bildirishnima bolimi --}}
+                    
+                    {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                             class="nav-link notification-toggle nav-link-lg"><i data-feather="bell"
                                 class="bell"></i>
                         </a>
@@ -181,7 +197,10 @@
                                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
+
+                    {{-- bildirishnima bolimi end --}}
+
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
                                 src="/admin/assets/img/user.png" class="user-img-radious-style"> <span
@@ -201,8 +220,8 @@
                             <div class="dropdown-divider"></div>
                             <form action="{{ route('logout') }}" class="logout" method="POST">
                                 @csrf
-                                <button class="dropdown-item has-icon text-danger"> <i
-                                        class="fas fa-sign-out-alt"></i> Log out</button>
+                                <button class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+                                    Log out</button>
                             </form>
                         </div>
                     </li>
@@ -216,7 +235,9 @@
 
                 @yield('content')
 
-                <div class="settingSidebar">
+                {{-- Setting panel start --}}
+
+                {{-- <div class="settingSidebar">
                     <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
                     </a>
                     <div class="settingSidebar-body ps-container ps-theme-default">
@@ -310,7 +331,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
+                {{-- Setting panel end --}}
+
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
