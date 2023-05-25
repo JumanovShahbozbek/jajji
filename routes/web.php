@@ -9,7 +9,11 @@ use App\Http\Controllers\Admin\HumanController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\NumberController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\RegionController;
+use App\Http\Controllers\Admin\StreetController;
+use App\Models\District;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +46,9 @@ Route::prefix('admin/')->name('admin.')/* ->middleware('auth') */->group(functio
     Route::resource('/numbers', NumberController::class);
     Route::resource('/categories', CategoryController::class);
     Route::resource('/posts', PostController::class);
+    Route::resource('/regions', RegionController::class);
+    Route::resource('/districts', DistrictController::class);
+    Route::resource('/streets', StreetController::class);
 });
 
 Auth::routes();

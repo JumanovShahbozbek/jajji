@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('categories')
+@section('streets')
     active
 @endsection
 
@@ -16,8 +16,8 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <h4>Category</h4>
-                            <a href="{{ route('admin.categories.create') }}" class="btn btn-primary"
+                            <h4>Viloyatlar</h4>
+                            <a href="{{ route('admin.streets.create') }}" class="btn btn-primary"
                                 style="position:absolute; right:50;">Create</a>
                         </div>
 
@@ -29,41 +29,39 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Category</th>
-                                            <th>Maqolaa</th>
+                                            <th>Mahalla</th>
+                                            <th>Tuman</th>
+                                            <th>Viloyat</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (count($categories) == 0)
+                                        @if (count($streets) == 0)
                                             <tr>
                                                 <td colspan="5" class="h5 text-center text-muted">Ma'lumot qo'shilmagan
                                                 </td>
                                             </tr>
                                         @endif
 
-                                        @foreach ($categories as $category)
+                                        @foreach ($streets as $street)
                                             <tr>
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $category->name }}</td>
-                                                <td>
-                                                    @foreach ($category->posts as $category)
-                                                        {{ $category->title }}
-                                                    @endforeach
-                                                </td>
+                                                <td>{{ $street->title }}</td>
+                                                <td>{{ $street->noun }}</td>
+                                                <td>{{ $street->name }}</td>
 
                                                 <td>
-                                                    <form action="{{ route('admin.categories.destroy', $category->id) }}"
+                                                    <form action="{{ route('admin.streets.destroy', $street->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('admin.categories.show', $category->id) }}"
+                                                        <a href="{{ route('admin.streets.show', $street->id) }}"
                                                             class="btn btn-info">
                                                             <ion-icon class="fas fa-info-circle"></ion-icon>
                                                         </a>
-                                                        <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                                        <a href="{{ route('admin.streets.edit', $street->id) }}"
                                                             class="btn btn-primary">
                                                             <ion-icon class="far fa-edit"></ion-icon>
                                                         </a>
@@ -79,7 +77,7 @@
 
                                     </tbody>
                                 </table>
-                                {{-- {{ $categories->links() }} --}}
+                                {{ $streets->links() }}
                             </div>
                         </div>
                     </div>

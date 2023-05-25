@@ -13,13 +13,14 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('id', 'DESC')->paginate(3);
+        // $categories = Category::orderBy('id', 'DESC')->paginate(3);
         
         $categories = DB::table('categories')
-        ->leftJoin('posts', 'categories.id', '=', 'posts.category_id')
-        ->select('categories.*', 'posts.*')->get();
-        return $categories;
-        // return view('admin.categories.index', compact('categories'));
+        /* $posts = Post::all() */
+        ->join('posts', 'categories.id', '=', 'posts.category_id')
+        ->select('categories.*', 'posts.*')->get()/* ->paginate(7) */;
+        // return $categories;
+        return view('admin.categories.index', compact('categories'));
     }
 
     public function create()
@@ -40,7 +41,7 @@ class CategoryController extends Controller
 
         $category = Category::find($id);
 
-        return view('admin.categories.show', compact('category',/*  'posts' */));
+        return view('admin.categories.show', compact('category'));
     }
 
     public function edit($id)

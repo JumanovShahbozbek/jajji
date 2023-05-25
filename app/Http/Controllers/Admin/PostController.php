@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id', 'DESC')->paginate(7);
+        // $posts = Post::orderBy('id', 'DESC')->paginate(7);
         $posts = DB::table('posts')
 
         ->join('categories', 'posts.category_id', '=', 'categories.id')

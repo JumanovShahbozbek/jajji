@@ -29,11 +29,28 @@
             </li>
 
             <li class="dropdown @yield('categories')">
-                <a href="{{ route('admin.categories.index') }}"><i data-feather="briefcase"></i><span>Category</span></a>
+                <a href="{{ route('admin.categories.index') }}"><i
+                        data-feather="briefcase"></i><span>Category</span></a>
             </li>
 
             <li class="dropdown @yield('posts')">
                 <a href="{{ route('admin.posts.index') }}"><i data-feather="briefcase"></i><span>Posts</span></a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#"><i></i><span></span></a>
+            </li>
+
+            <li class="dropdown @yield('regions')">
+                <a href="{{ route('admin.regions.index') }}"><i data-feather="briefcase"></i><span>Viloyat</span></a>
+            </li>
+
+            <li class="dropdown @yield('districts')">
+                <a href="{{ route('admin.districts.index') }}"><i data-feather="briefcase"></i><span>Tuman</span></a>
+            </li>
+
+            <li class="dropdown @yield('streets')">
+                <a href="{{ route('admin.streets.index') }}"><i data-feather="briefcase"></i><span>Mahalla</span></a>
             </li>
 
         </ul>

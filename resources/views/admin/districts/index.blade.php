@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('categories')
+@section('districts')
     active
 @endsection
 
@@ -16,8 +16,8 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <h4>Category</h4>
-                            <a href="{{ route('admin.categories.create') }}" class="btn btn-primary"
+                            <h4>Viloyatlar</h4>
+                            <a href="{{ route('admin.districts.create') }}" class="btn btn-primary"
                                 style="position:absolute; right:50;">Create</a>
                         </div>
 
@@ -28,42 +28,40 @@
                                         <tr>
                                             <th class="text-center">
                                                 #
-                                            </th>
-                                            <th>Category</th>
-                                            <th>Maqolaa</th>
+                                            </th>                                                                                   
+                                            <th>Tumanlar</th>
+                                            <th>Viloyat</th>
+                                            <th>Mahalla</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (count($categories) == 0)
+                                        @if (count($districts) == 0)
                                             <tr>
                                                 <td colspan="5" class="h5 text-center text-muted">Ma'lumot qo'shilmagan
                                                 </td>
                                             </tr>
                                         @endif
 
-                                        @foreach ($categories as $category)
+                                        @foreach ($districts as $district)
                                             <tr>
                                                 <td>
                                                     {{ ++$loop->index }}
-                                                </td>
-                                                <td>{{ $category->name }}</td>
-                                                <td>
-                                                    @foreach ($category->posts as $category)
-                                                        {{ $category->title }}
-                                                    @endforeach
-                                                </td>
+                                                </td>                                                
+                                                <td>{{ $district->noun ?? 'boglanmagan'}}</td>
+                                                <td>{{ $district->name  ?? 'boglanmagan'}}</td>
+                                                <td>{{ $district->title ?? 'boglanmagan'}}</td>
 
                                                 <td>
-                                                    <form action="{{ route('admin.categories.destroy', $category->id) }}"
+                                                    <form action="{{ route('admin.districts.destroy', $district->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('admin.categories.show', $category->id) }}"
+                                                        <a href="{{ route('admin.districts.show', $district->id) }}"
                                                             class="btn btn-info">
                                                             <ion-icon class="fas fa-info-circle"></ion-icon>
                                                         </a>
-                                                        <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                                        <a href="{{ route('admin.districts.edit', $district->id) }}"
                                                             class="btn btn-primary">
                                                             <ion-icon class="far fa-edit"></ion-icon>
                                                         </a>
@@ -79,7 +77,7 @@
 
                                     </tbody>
                                 </table>
-                                {{-- {{ $categories->links() }} --}}
+                                {{-- {{ $districts->links() }} --}}
                             </div>
                         </div>
                     </div>
