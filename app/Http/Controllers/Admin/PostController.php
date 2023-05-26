@@ -12,11 +12,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        // $posts = Post::orderBy('id', 'DESC')->paginate(7);
-        $posts = DB::table('posts')
-
-        ->join('categories', 'posts.category_id', '=', 'categories.id')
-        ->select('posts.*', 'categories.name')->paginate(10);
+        $posts = Post::orderBy('id', 'DESC')->paginate(7);
+        /* $categories = Category::all() */;
 
         return view('admin.posts.index', compact('posts'));
     }

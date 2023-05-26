@@ -30,8 +30,6 @@
                                                 #
                                             </th>
                                             <th>Viloyatlar</th>
-                                            <th>Tuman</th>
-                                            <th>Mahalla</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -48,10 +46,7 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $region->name ?? 'boglanmagan' }}</td>
-                                               
-                                                <td>{{ $region->noun ?? 'boglanmagan'}}</td>
-                                                <td>{{ $region->title  ?? 'boglanmagan'}}</td>
+                                                <td>{{ $region->name }}</td>
 
                                                 <td>
                                                     <form action="{{ route('admin.regions.destroy', $region->id) }}"

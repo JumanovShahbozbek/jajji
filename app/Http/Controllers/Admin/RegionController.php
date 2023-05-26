@@ -11,13 +11,7 @@ class RegionController extends Controller
 {
     public function index()
     {
-        // $regions = Region::orderBy('id', 'DESC')->paginate(3);
-
-        $regions = DB::table('regions')
-
-        ->join('districts', 'regions.id', '=', 'districts.region_id')
-        ->join('streets', 'regions.id', '=', 'streets.region_id')
-        ->select('regions.*', 'districts.*', 'streets.*')->get();
+        $regions = Region::orderBy('id', 'DESC')->paginate(3);
 
         return view('admin.regions.index', compact('regions'));
     }

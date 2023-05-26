@@ -13,12 +13,7 @@ class DistrictController extends Controller
 {
     public function index()
     {
-        // $districts = District::orderBy('id', 'DESC')->paginate(3);
-
-        $districts  = DB::table('districts')
-        ->join('streets','districts.id','=','streets.district_id')
-        ->select('districts.*','streets.*')->get();
-
+        $districts = District::orderBy('id', 'DESC')->paginate(3);
         
         return view('admin.districts.index', compact('districts',));
     }

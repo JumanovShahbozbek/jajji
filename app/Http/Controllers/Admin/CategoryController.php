@@ -13,13 +13,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        // $categories = Category::orderBy('id', 'DESC')->paginate(3);
+        $categories = Category::orderBy('id', 'DESC')->paginate(3);
         
-        $categories = DB::table('categories')
-        /* $posts = Post::all() */
-        ->join('posts', 'categories.id', '=', 'posts.category_id')
-        ->select('categories.*', 'posts.*')->get()/* ->paginate(7) */;
-        // return $categories;
         return view('admin.categories.index', compact('categories'));
     }
 

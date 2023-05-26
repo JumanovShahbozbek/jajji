@@ -25,10 +25,15 @@
                                             <td>Category: </td>
                                             <td><b>{{ $category->name }}</b></td>
                                         </tr>
-                                        {{-- <tr>
-                                            <td>Maqola:</td>
-                                            <td><b>{{ $posts->title ?? 'boglanmagan'}}</b></td>
-                                        </tr> --}}
+                                        <tr>
+                                            <td>Postlar:</td>
+                                            <td><b>
+                                                @foreach ($category->posts as $category)                                 
+                                                    {{ $category->title }} <br>
+                                                @endforeach</b>
+                                            </td>
+                                        </tr>
+                                    </thead>
                                 </table>
                             </div>
                         </div>

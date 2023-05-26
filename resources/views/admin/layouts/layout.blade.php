@@ -1,231 +1,169 @@
-<!-- index.html  21 Nov 2019 03:44:50 GMT -->
 {{-- <!DOCTYPE html>
 <html lang="en"> --}}
 
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title> Admin Dashboard Template</title>
-    <!-- General CSS Files -->
-    <link rel="stylesheet" href="/admin/assets/css/app.min.css">
-    <link rel="stylesheet" href="/admin/assets/bundles/datatables/datatables.min.css">
-    <link rel="stylesheet" href="/admin/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>Admin panel</title>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="/admin/assets/vendors/simplebar/css/simplebar.css">
+    <link rel="stylesheet" href="/admin/assets/css/vendors/simplebar.css">
+    <!-- Main styles for this application-->
+    <link href="/admin/assets/css/style.css" rel="stylesheet">
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
+    <link href="/admin/assets/css/examples.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    <link rel="stylesheet" href="/admin/assets/bundles/summernote/summernote-bs4.css">
-    <link rel="stylesheet" href="/admin/assets/bundles/codemirror/lib/codemirror.css">
-    <link rel="stylesheet" href="/admin/assets/bundles/codemirror/theme/duotone-dark.css">
-    <link rel="stylesheet" href="/admin/assets/bundles/jquery-selectric/selectric.css">
-    <link rel="stylesheet" href="/admin/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="/admin/assets/css/style.css">
-    <link rel="stylesheet" href="/admin/assets/css/components.css">
-    <!-- Custom style CSS -->
-    <link rel="stylesheet" href="/admin/assets/css/custom.css">
-    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
-
-    <!-- Boxicons -->
-    {{-- <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css"
-        rel="stylesheet"> --}}
-
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        // Shared ID
+        gtag('config', 'UA-118965717-3');
+        // Bootstrap ID
+        gtag('config', 'UA-118965717-5');
+    </script>
+    <link href="vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="loader"></div>
-    <div id="app">
-        <div class="main-wrapper main-wrapper-1">
-            <div class="navbar-bg"></div>
-            <nav class="navbar navbar-expand-lg main-navbar sticky">
-                <div class="form-inline mr-auto">
-                    <ul class="navbar-nav mr-3">
-                        <li><a href="#" data-toggle="sidebar"
-                                class="nav-link nav-link-lg
-                                      collapse-btn"> <i
-                                    data-feather="align-justify"></i></a>
-                        </li>
-                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
-                                <i data-feather="maximize"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <form class="form-inline mr-auto">
-                                <div class="search-element">
-                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search"
-                                        data-width="200">
-                                    <button class="btn" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="navbar-nav navbar-right">
 
-                    <li class="dropdown"><a href="#" data-toggle="dropdown"
-                            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
-                                src="/admin/assets/img/user.png" class="user-img-radious-style"> <span
-                                class="d-sm-none d-lg-inline-block"></span></a>
-                        <div class="dropdown-menu dropdown-menu-right pullDown">
-                            {{-- <div class="dropdown-title">Hello {{ Auth::user()->name }}</div> --}}
-                            <a href="profile.html" class="dropdown-item has-icon"> <i
-                                    class="far
-                                          fa-user"></i> Profile
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+        <div class="sidebar-brand d-none d-md-flex">
+            <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+                <use xlink:href="assets/brand/coreui.svg#full"></use>
+            </svg>
+            <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
+                <use xlink:href="assets/brand/coreui.svg#signet"></use>
+            </svg>
+        </div>
+
+        <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+
+            @include('admin.layouts.navbar')
+
+        </ul>
+        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    </div>
+
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+        <header class="header header-sticky mb-4">
+            <div class="container-fluid">
+                <button class="header-toggler px-md-0 me-md-3" type="button"
+                    onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+                    <svg class="icon icon-lg">
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
+                    </svg>
+                </button><a class="header-brand d-md-none" href="#">
+                    <svg width="118" height="46" alt="CoreUI Logo">
+                        <use xlink:href="assets/brand/coreui.svg#full"></use>
+                    </svg></a>
+                <ul class="header-nav d-none d-md-flex">
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+                </ul>
+                <ul class="header-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">
+                            <svg class="icon icon-lg">
+                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                            </svg></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">
+                            <svg class="icon icon-lg">
+                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
+                            </svg></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">
+                            <svg class="icon icon-lg">
+                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                            </svg></a></li>
+                </ul>
+
+                <ul class="header-nav ms-3">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg"
+                                    alt="user@email.com">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end pt-0">
+                            <div class="dropdown-header bg-light py-2">
+                                <div class="fw-semibold">Account</div>
+                            </div>
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                                </svg> Profile
                             </a>
-                            <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
-                                Activities
-                            </a>
-                            <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
-                                Settings
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
+                                </svg> Settings
                             </a>
                             <div class="dropdown-divider"></div>
-                            <form action="{{ route('logout') }}" class="logout" method="POST">
+                            <a class="dropdown-item" href="#">
+                                <svg class="icon me-2">
+                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                                </svg> Lock Account
+                            </a>
+                            <form action="{{ route('logout') }}" class="logout">
                                 @csrf
-                                <button class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
-                                    Log out</button>
+                                <button type="button" class="dropdown-item">
+                                    <svg class="icon me-2">
+                                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout">
+                                        </use>
+                                    </svg> Logout
+                                </button>
                             </form>
                         </div>
                     </li>
                 </ul>
-            </nav>
-
-            @include('admin.layouts.navbar')
-
-            <!-- Main Content -->
-            <div class="main-content">
-
-                @yield('content')
-
-                {{-- Setting panel start --}}
-
-                {{-- <div class="settingSidebar">
-                    <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
-                    </a>
-                    <div class="settingSidebar-body ps-container ps-theme-default">
-                        <div class=" fade show active">
-                            <div class="setting-panel-header">Setting Panel
-                            </div>
-                            <div class="p-15 border-bottom">
-                                <h6 class="font-medium m-b-10">Select Layout</h6>
-                                <div class="selectgroup layout-color w-50">
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="value" value="1"
-                                            class="selectgroup-input-radio select-layout" checked>
-                                        <span class="selectgroup-button">Light</span>
-                                    </label>
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="value" value="2"
-                                            class="selectgroup-input-radio select-layout">
-                                        <span class="selectgroup-button">Dark</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="p-15 border-bottom">
-                                <h6 class="font-medium m-b-10">Sidebar Color</h6>
-                                <div class="selectgroup selectgroup-pills sidebar-color">
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="icon-input" value="1"
-                                            class="selectgroup-input select-sidebar">
-                                        <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
-                                            data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
-                                    </label>
-                                    <label class="selectgroup-item">
-                                        <input type="radio" name="icon-input" value="2"
-                                            class="selectgroup-input select-sidebar" checked>
-                                        <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
-                                            data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="p-15 border-bottom">
-                                <h6 class="font-medium m-b-10">Color Theme</h6>
-                                <div class="theme-setting-options">
-                                    <ul class="choose-theme list-unstyled mb-0">
-                                        <li title="white" class="active">
-                                            <div class="white"></div>
-                                        </li>
-                                        <li title="cyan">
-                                            <div class="cyan"></div>
-                                        </li>
-                                        <li title="black">
-                                            <div class="black"></div>
-                                        </li>
-                                        <li title="purple">
-                                            <div class="purple"></div>
-                                        </li>
-                                        <li title="orange">
-                                            <div class="orange"></div>
-                                        </li>
-                                        <li title="green">
-                                            <div class="green"></div>
-                                        </li>
-                                        <li title="red">
-                                            <div class="red"></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="p-15 border-bottom">
-                                <div class="theme-setting-options">
-                                    <label class="m-b-0">
-                                        <input type="checkbox" name="custom-switch-checkbox"
-                                            class="custom-switch-input" id="mini_sidebar_setting">
-                                        <span class="custom-switch-indicator"></span>
-                                        <span class="control-label p-l-10">Mini Sidebar</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="p-15 border-bottom">
-                                <div class="theme-setting-options">
-                                    <label class="m-b-0">
-                                        <input type="checkbox" name="custom-switch-checkbox"
-                                            class="custom-switch-input" id="sticky_header_setting">
-                                        <span class="custom-switch-indicator"></span>
-                                        <span class="control-label p-l-10">Sticky Header</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
-                                <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
-                                    <i class="fas fa-undo"></i> Restore Default
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- Setting panel end --}}
-
             </div>
-            <footer class="main-footer">
-                <div class="footer-left">
-                    <a href="templateshub.net">Templateshub</a></a>
-                </div>
-                <div class="footer-right">
-                </div>
-            </footer>
-        </div>
-    </div>
-    <!-- General JS Scripts -->
 
-    <script src="/admin/assets/js/app.min.js"></script>
-    <!-- JS Libraies -->
-    <script src="/admin/assets/bundles/summernote/summernote-bs4.js"></script>
-    <script src="/admin/assets/bundles/codemirror/lib/codemirror.js"></script>
-    <script src="/admin/assets/bundles/codemirror/mode/javascript/javascript.js"></script>
-    <script src="/admin/assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
-    <script src="/admin/assets/bundles/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
-    <script src="/admin/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-    <!-- Page Specific JS File -->
-    <script src="/admin/assets/js/page/index.js"></script>
-    <script src="/admin/assets/js/page/create-post.js"></script>
-    <script src="/admin/assets/js/page/ckeditor.js"></script>
-    <!-- Template JS File -->
-    <script src="/admin/assets/js/scripts.js"></script>
-    <!-- Custom JS File -->
-    <script src="/admin/assets/js/custom.js"></script>
+            <div class="header-divider"></div>
+            <div class="container-fluid">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb my-0 ms-2">
+                        <li class="breadcrumb-item">
+                            <!-- if breadcrumb is single--><span>Home</span>
+                        </li>
+                        <li class="breadcrumb-item active"><span>Dashboard</span></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        @yield('content')
+
+        <footer class="footer">
+            <div><a href="#">CoreUI </a><a href="#">Bootstrap Admin Template</a> ©
+                2022
+                creativeLabs.</div>
+            <div class="ms-auto">Powered by&nbsp;<a href="#">CoreUI UI Components</a></div>
+        </footer>
+    </div>
+
+    <!-- CoreUI and necessary plugins-->
+    <script src="/admin/assets/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="/admin/assets/vendors/simplebar/js/simplebar.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="/admin/assets/vendors/chart.js/js/chart.min.js"></script>
+    <script src="/admin/assets/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
+    <script src="/admin/assets/vendors/@coreui/utils/js/coreui-utils.js"></script>
+    <script src="/admin/assets/js/main.js"></script>
+    <script></script>
+
 </body>
 
-
-<!-- index.html  21 Nov 2019 03:47:04 GMT -->
-
-</html>
+{{-- </html> --}}
