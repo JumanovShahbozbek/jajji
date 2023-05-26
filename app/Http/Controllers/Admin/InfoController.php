@@ -12,7 +12,7 @@ class InfoController extends Controller
     
     public function index()
     {
-        $infos = Info::orderBy('id', 'DESC')->paginate(3);
+        $infos = Info::orderBy('id', 'DESC')->paginate(6);
 
         return view('admin.infos.index', compact('infos'));
     }

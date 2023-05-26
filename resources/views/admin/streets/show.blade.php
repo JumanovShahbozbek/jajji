@@ -25,6 +25,14 @@
                                             <td>Mahalla : </td>
                                             <td><b>{{ $street->title }}</b></td>
                                         </tr>
+                                        <tr>
+                                            <td>tuman : </td>
+                                            <td><b>{{ $street->district->noun }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mahalla : </td>
+                                            <td><b>{{ $street->region->name }}</b></td>
+                                        </tr>
                                     </thead>
                                 </table>
                             </div>

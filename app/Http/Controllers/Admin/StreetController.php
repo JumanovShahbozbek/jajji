@@ -12,7 +12,7 @@ class StreetController extends Controller
 {
     public function index()
     {
-        $streets = Street::orderBy('id', 'DESC')->paginate(3);
+        $streets = Street::orderBy('id', 'DESC')->get();
 
         return view('admin.streets.index', compact('streets'));
     }

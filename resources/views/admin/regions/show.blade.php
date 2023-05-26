@@ -24,12 +24,25 @@
                                         <tr>
                                             <td>Viloyat : </td>
                                             <td><b>{{ $region->name }}</b></td>
-                                            <td>Tuman : </td>
-                                            <td>{{ $region->noun ?? 'boglanmagan'}}</td>
-                                            <td>Mahalla : </td>
-                                            <td>{{ $region->title  ?? 'boglanmagan'}}</td>
-
                                         </tr>
+                                        <tr>
+                                            <td>Tumanlar:</td>
+                                            <td><b>
+                                                    @foreach ($region->districts as $region)
+                                                        {{ $region->noun }} <br>
+                                                    @endforeach
+                                                </b>
+                                            </td>
+                                        </tr>
+                                        {{-- <tr>
+                                            <td>Mahalla:</td>
+                                            <td><b>
+                                                    @foreach ($region->streets as $region)
+                                                        {{ $region->title }} <br>
+                                                    @endforeach
+                                                </b>
+                                            </td>
+                                        </tr> --}}
                                     </thead>
                                 </table>
                             </div>

@@ -24,10 +24,19 @@
                                         <tr>
                                             <td>Tuman : </td>
                                             <td><b>{{ $district->noun }}</b></td>
-                                            <td>Viloyat : </td>
-                                            <td>{{ $district->name }}</td>
-                                            <td>Mahalla : </td>
-                                            <td>{{ $district->title }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viloyat</td>
+                                            <td><b>{{ $district->region->name }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mahalla:</td>
+                                            <td><b>
+                                                    @foreach ($district->streets as $district)
+                                                        {{ $district->title }} <br>
+                                                    @endforeach
+                                                </b>
+                                            </td>
                                         </tr>
                                     </thead>
                                 </table>

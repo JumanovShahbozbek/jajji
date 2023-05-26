@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Info;
 use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
     public function welcome()
     {
-        return view('welcome');
+        $infos = Info::orderBy('id', 'DESC')->get();
+
+        return view('welcome', compact('infos'));
     }
 
     public function group()
@@ -52,7 +54,7 @@ class SiteController extends Controller
 
     public function copmlants(Request $request)
     {
-        return $request;
+        
         DB::table('copmlants')->insert([
             'name' => $request->name,
             'comp' => $request->comp,

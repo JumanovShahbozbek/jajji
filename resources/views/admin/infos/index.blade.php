@@ -7,16 +7,26 @@
 @section('content')
     <div class="card mb-4">
         <div class="card-header"><strong>Infos</strong></div>
-        
+
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
             </div>
         @endif
 
-        <div class="card-header nav justify-content-center">
-            <a href="{{ route('admin.infos.create') }}" class="btn btn-primary" style="position:absolute; right:50;">Create</a>
-        </div><br>
+        @if (count($infos) < 6)
+
+            <div class="card-header nav justify-content-center">
+                <a href="{{ route('admin.infos.create') }}" class="btn btn-primary"
+                    style="position:absolute; right:50;">Create</a>
+            </div><br>
+
+        @else
+            <div class="card-header nav justify-content-center">
+                <p> Boshqa malumot kiritib bolmaydi</p>
+            </div><br>
+            
+        @endif
 
         <div class="card-body">
             <div class="table-responsive">

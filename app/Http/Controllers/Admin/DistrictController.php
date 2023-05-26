@@ -13,7 +13,7 @@ class DistrictController extends Controller
 {
     public function index()
     {
-        $districts = District::orderBy('id', 'DESC')->paginate(3);
+        $districts = District::orderBy('id', 'DESC')->get();
         
         return view('admin.districts.index', compact('districts',));
     }
@@ -35,7 +35,7 @@ class DistrictController extends Controller
     public function show($id)
     {
         $district = District::find($id);
-
+        // return $district;
         return view('admin.districts.show', compact('district'));
     }
 
@@ -43,7 +43,9 @@ class DistrictController extends Controller
     {
         $district = District::find($id);
 
-        return view('admin.districts.edit', compact('district',));
+        $regions = Region::all();
+
+        return view('admin.districts.edit', compact('district','regions'));
     }
 
     public function update(Request $request, $id)

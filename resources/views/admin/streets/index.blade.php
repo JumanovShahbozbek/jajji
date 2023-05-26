@@ -29,9 +29,7 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Mahalla</th>
-                                            <th>Tuman</th>
-                                            <th>Viloyat</th>
+                                            <th>Mahalla</th>                                        
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -49,9 +47,6 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td>{{ $street->title }}</td>
-                                                <td>{{ $street->noun }}</td>
-                                                <td>{{ $street->name }}</td>
-
                                                 <td>
                                                     <form action="{{ route('admin.streets.destroy', $street->id) }}"
                                                         method="POST">
@@ -77,7 +72,7 @@
 
                                     </tbody>
                                 </table>
-                                {{ $streets->links() }}
+                                {{-- {{ $streets->links() }} --}}
                             </div>
                         </div>
                     </div>

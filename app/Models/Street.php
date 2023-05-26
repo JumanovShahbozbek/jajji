@@ -11,12 +11,12 @@ class Street extends Model
 
     protected $guarded = [];
 
-    public function regions()
+    public function region()
     {
         return $this->belongsTo(Region::class);
     }
 
-    public function districts()
+    public function district()
     {
         return $this->belongsTo(District::class);
     }

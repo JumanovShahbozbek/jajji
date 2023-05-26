@@ -43,19 +43,6 @@
                                 </div>
 
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Viloyat</label>
-                                    <div class="col-sm-12 col-md-7">    
-                                        <select name="region_id" class="form-control">
-
-                                            @foreach ($regions as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">tuman</label>
                                     <div class="col-sm-12 col-md-7">    
                                         <select name="district_id" class="form-control">
@@ -67,6 +54,19 @@
                                         </select>
                                     </div>
                                 </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Viloyat</label>
+                                    <div class="col-sm-12 col-md-7">    
+                                        <select name="region_id" class="form-control">
+
+                                            @foreach ($regions as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                            
+                                        </select>
+                                    </div>
+                                </div>                                
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
