@@ -1,5 +1,4 @@
 
-
 <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">
         <svg class="nav-icon">
             <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
@@ -12,6 +11,30 @@
     <svg class="nav-icon">
         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
     </svg> Infos</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.groups.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
+    </svg> Groups</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.teachers.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
+    </svg> Teachers</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.coments.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
+    </svg> Coments</a>
+</li>
+
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.articles.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
+    </svg> Articles</a>
 </li>
 
 {{-- <li class="nav-title">Client</li>

@@ -1,0 +1,82 @@
+@extends('admin.layouts.layout')
+
+@section('coments')
+    active
+@endsection
+
+@section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <!-- MAIN -->
+    <main>
+
+        <div class="table-data">
+            <div class="order">
+                <div class="head">
+                    <h3>O'zgartirish</h3>
+                    <a class="create__btn" href="{{ route('admin.coments.index') }}"> <i
+                            class='bx bx-arrow-back'></i>Qaytish</a>
+
+                </div>
+
+                <form class="create__inputs" action="{{ route('admin.coments.update', $coment->id) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <strong> Icon :</strong>
+                    <input type="file" name="icon" value="{{ $coment->icon }}" class="form-control"> <br>
+                    @error('icon')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Content :</strong>
+                    <input type="text" name="content" value="{{ $coment->content }}" class="form-control"> <br>
+                    @error('content')
+                        {{ $message }}
+                    @enderror
+
+
+                    <strong> Photo :</strong>
+                    <input type="file" name="img" value="{{ $coment->img }}" class="form-control"> <br>
+                    @error('img')
+                        {{ $message }}
+                    @enderror
+
+
+                    <strong> Surname :</strong>
+                    <input type="text" name="surname" value="{{ $coment->surname }}" class="form-control"> <br>
+                    @error('surname')
+                        {{ $message }}
+                    @enderror
+
+
+                    <strong> Name :</strong>
+                    <input type="text" name="name" value="{{ $coment->name }}" class="form-control"> <br>
+                    @error('name')
+                        {{ $message }}
+                    @enderror
+
+
+                    <strong> Job :</strong>
+                    <input type="text" name="job" value="{{ $coment->job }}" class="form-control"> <br>
+                    @error('job')
+                        {{ $message }}
+                    @enderror
+
+                    <input type="submit" value="O'zgartirish">
+
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <!-- MAIN -->
+@endsection

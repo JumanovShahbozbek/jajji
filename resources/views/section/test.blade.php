@@ -5,58 +5,22 @@
             <h1 class="mb-4">Ota-onalar nima deyishadi!</h1>
         </div>
         <div class="owl-carousel testimonial-carousel">
-            <div class="testimonial-item px-3">
-                <div class="bg-light shadow-sm rounded mb-4 p-4">
-                    <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                    Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum clita
-                </div>
-                <div class="d-flex align-items-center">
-                    <img class="rounded-circle" src="/assets/img/testimonial-1.jpg" style="width: 70px; height: 70px;" alt="Image">
-                    <div class="pl-3">
-                        <h5>Toshpolatov Nodir</h5>
-                        <i>O'qituvchi</i>
+            @foreach ($coments as $coment)
+                <div class="testimonial-item px-3">
+                    <div class="bg-light shadow-sm rounded mb-4 p-4">
+                        <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                        {{ $coment->content }}
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="images/{{ $coment->img }}" style="width: 70px; height: 70px;"
+                            alt="Image">
+                        <div class="pl-3">
+                            <h5> {{ $coment->surname }} {{ $coment->name }} </h5>
+                            <i> {{ $coment->job }} </i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="testimonial-item px-3">
-                <div class="bg-light shadow-sm rounded mb-4 p-4">
-                    <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                    Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum clita
-                </div>
-                <div class="d-flex align-items-center">
-                    <img class="rounded-circle" src="/assets/img/testimonial-2.jpg" style="width: 70px; height: 70px;" alt="Image">
-                    <div class="pl-3">
-                        <h5>Umrzaqova Nilufar</h5>
-                        <i>Programist</i>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item px-3">
-                <div class="bg-light shadow-sm rounded mb-4 p-4">
-                    <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                    Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum clita
-                </div>
-                <div class="d-flex align-items-center">
-                    <img class="rounded-circle" src="/assets/img/testimonial-3.jpg" style="width: 70px; height: 70px;" alt="Image">
-                    <div class="pl-3">
-                        <h5>Sobirov Rustam</h5>
-                        <i>Sartarosh</i>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item px-3">
-                <div class="bg-light shadow-sm rounded mb-4 p-4">
-                    <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                    Sed ea amet kasd elitr stet, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolor tempor ipsum clita
-                </div>
-                <div class="d-flex align-items-center">
-                    <img class="rounded-circle" src="/assets/img/testimonial-4.jpg" style="width: 70px; height: 70px;" alt="Image">
-                    <div class="pl-3">
-                        <h5>Baqlajanov Ulkan</h5>
-                        <i>PR-Manager</i>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

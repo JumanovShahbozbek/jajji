@@ -17,7 +17,6 @@
         <div class="row pb-3">
 
             @include('section.blog')
-            @include('section.blog')
             
             <div class="col-md-12 mb-4">
                 <nav aria-label="Page navigation">

@@ -15,7 +15,7 @@
                 <h1 class="mb-4">Farzandlaringiz uchun darslar</h1>
             </div>
             @include('section.group')
-            @include('section.group')
+            {{-- @include('section.group') --}}
         </div>
     </div>
     <!-- Class End -->
