@@ -53,6 +53,6 @@ class RegionController extends Controller
     {
         Region::find($id)->delete();
 
-        return redirect()->route('admin.regions.index')->with('success', 'Malumot mavaffaqiyatli ochirildi');
+        return redirect()->route('admin.regions.index')->with('danger', 'Malumot mavaffaqiyatli ochirildi');
     } 
 }

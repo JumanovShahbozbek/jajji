@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('streets')
+@section('gallaries')
     active
 @endsection
 
@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>Show Product</h4>
-                            <a href="{{ route('admin.streets.index') }}" class="btn btn-primary"
+                            <a href="{{ route('admin.gallaries.index') }}" class="btn btn-primary"
                                 style="position:absolute; right:50;">Back</a>
                         </div>
 
@@ -21,18 +21,14 @@
                             <div class="table-responsive">
                                 <table class="table table-striped" id="table-1">
                                     <thead>
+                                        
                                         <tr>
-                                            <td>Mahalla : </td>
-                                            <td><b>{{ $street->title }}</b></td>
+                                            <td>Rasmi : </td>
+                                            <td>
+                                            <td><b><img src="/images/{{ $gallary->image }}" width="100" alt=""></b></td>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Tuman : </td>
-                                            <td><b>{{ $street->noun }}</b></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Viloyat : </td>
-                                            <td><b>{{ $street->name }}</b></td>
-                                        </tr>
+
                                     </thead>
                                 </table>
                             </div>

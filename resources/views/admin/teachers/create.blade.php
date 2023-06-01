@@ -30,6 +30,17 @@
                         <div class="card-body">
                             <form action="{{ route('admin.teachers.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Darajasi</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <select name="status" id="" class="form-control">
+                                            <option value="0">Raxbariyat</option>
+                                            <option value="1">O'qituvchi</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">icon</label>
                                     <div class="col-sm-12 col-md-7">
@@ -42,7 +53,8 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">tgram</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('tgram') }}" name="tgram">
+                                        <input type="text" class="form-control" value="{{ old('tgram') }}"
+                                            name="tgram">
                                         @error('tgram')
                                             {{ $message }}
                                         @enderror
@@ -51,7 +63,8 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">fbook</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('fbook') }}" name="fbook">
+                                        <input type="text" class="form-control" value="{{ old('fbook') }}"
+                                            name="fbook">
                                         @error('fbook')
                                             {{ $message }}
                                         @enderror
@@ -60,7 +73,8 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">insta</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('insta') }}" name="insta">
+                                        <input type="text" class="form-control" value="{{ old('insta') }}"
+                                            name="insta">
                                         @error('insta')
                                             {{ $message }}
                                         @enderror
@@ -69,7 +83,8 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">name</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('name') }}" name="name">
+                                        <input type="text" class="form-control" value="{{ old('name') }}"
+                                            name="name">
                                         @error('name')
                                             {{ $message }}
                                         @enderror
@@ -78,7 +93,8 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Job</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('job') }}" name="job">
+                                        <input type="text" class="form-control" value="{{ old('job') }}"
+                                            name="job">
                                         @error('job')
                                             {{ $message }}
                                         @enderror
@@ -91,6 +107,7 @@
                                         <button class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
+
                             </form>
                         </div>
                     </div>

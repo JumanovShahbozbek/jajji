@@ -59,6 +59,6 @@ class PostController extends Controller
     {
         Post::find($id)->delete();
 
-        return redirect()->route('admin.posts.index')->with('success', 'Malumot mavaffaqiyatli ochirildi');
+        return redirect()->route('admin.posts.index')->with('danger', 'Malumot mavaffaqiyatli ochirildi');
     }
 }

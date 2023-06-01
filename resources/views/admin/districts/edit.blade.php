@@ -24,7 +24,6 @@
                     <h3>O'zgartirish</h3>
                     <a class="create__btn" href="{{ route('admin.districts.index') }}"> <i
                             class='bx bx-arrow-back'></i>Qaytish</a>
-
                 </div>
 
                 <form class="create__inputs" action="{{ route('admin.districts.update', $district->id) }}" method="POST"
@@ -32,18 +31,22 @@
                     @csrf
                     @method('PUT')
 
-                    <strong> Tuman :</strong>
-                    <input type="text" name="noun" value="{{ $district->noun }}" class="form-control"> <br>
-                    @error('noun')
-                        {{ $message }}
-                    @enderror
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tuman;</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="text" name="noun" value="{{ $district->noun }}" class="form-control"> <br>
+                            @error('noun')
+                                {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
 
                     <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Viloyatlar</label>
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Viloyatlar;</label>
                         <div class="col-sm-12 col-md-7">
                             <select name="region_id" class="form-control">
 
-                                @foreach ($district as $item)
+                                @foreach ($regions as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
 

@@ -33,7 +33,7 @@ class ArticleController extends Controller
 
         Article::create($requestData);
 
-        return redirect(route('admin.articles.index'));
+        return redirect(route('admin.articles.index'))->with('success', 'Malumot muvaffaqiyatli qoshildi');
     }
 
 
@@ -69,7 +69,7 @@ class ArticleController extends Controller
 
         $article->update($requestData);
 
-        return redirect()->route('admin.articles.index');
+        return redirect()->route('admin.articles.index')->with('success', 'Malumot muvaffaqiyatli ozgartirildi');
     }
 
 
@@ -81,7 +81,7 @@ class ArticleController extends Controller
         }
         $article->delete();
 
-        return redirect(route('admin.articles.index'));
+        return redirect(route('admin.articles.index'))->with('danger', 'Malumot muvaffaqiyatli ochirildi');
     }
 
     public function upload_file()

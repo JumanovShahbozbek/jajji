@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\NumberController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ComentController;
 use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\Admin\GallaryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\StreetController;
@@ -49,6 +50,7 @@ Route::prefix('admin/')->name('admin.')/* ->middleware('auth') */->group(functio
     Route::resource('/teachers', TeacherController::class);
     Route::resource('/coments', ComentController::class);
     Route::resource('/articles', ArticleController::class);
+    Route::resource('/gallaries', GallaryController::class);
 
     Route::resource('/humans', HumanController::class);
     Route::resource('/numbers', NumberController::class);

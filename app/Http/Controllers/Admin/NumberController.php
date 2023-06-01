@@ -52,6 +52,6 @@ class NumberController extends Controller
     {
         Number::find($id)->delete();
 
-        return redirect()->route('admin.numbers.index')->with('success', 'Malumot mavaffaqiyatli ochirildi');
+        return redirect()->route('admin.numbers.index')->with('danger', 'Malumot mavaffaqiyatli ochirildi');
     }
 }

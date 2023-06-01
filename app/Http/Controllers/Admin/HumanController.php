@@ -57,6 +57,6 @@ class HumanController extends Controller
     {
         Human::find($id)->delete();
         
-        return redirect()->route('admin.humans.index')->with('success', 'Malumot mavaffaqiyatli ochirildi');
+        return redirect()->route('admin.humans.index')->with('danger', 'Malumot mavaffaqiyatli ochirildi');
     }
 }

@@ -11,7 +11,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::orderBY('id', 'DESC')->paginate(10);
+        $teachers = Teacher::orderBY('id', 'DESC')->get();
 
         return view('admin.teachers.index', compact('teachers'));
     }
@@ -33,7 +33,7 @@ class TeacherController extends Controller
 
         Teacher::create($requestData);
 
-        return redirect(route('admin.teachers.index'));
+        return redirect(route('admin.teachers.index'))->with('success', 'Malumot muvaffaqiyatli qoshildi');
     }
 
 
@@ -69,7 +69,7 @@ class TeacherController extends Controller
 
         $teacher->update($requestData);
 
-        return redirect(route('admin.teachers.index'));
+        return redirect(route('admin.teachers.index'))->with('success', 'Malumot mavaffaqiyatli ozgartirildi');
     }
 
 
@@ -82,7 +82,7 @@ class TeacherController extends Controller
 
         $teacher->delete();
 
-        return redirect(route('admin.teachers.index'));
+        return redirect(route('admin.teachers.index'))->with('danger', 'Malumot muvaffaqiyatli ochirildi');
     }
 
     public function upload_file()

@@ -9,11 +9,18 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
+                    
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+                    @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
                     <div class="card">
                         <div class="card-header">
                             <h4>Teachers</h4>
@@ -49,7 +56,8 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td><img src="/images/{{ $article->img }}" width="100px" alt=""></td>
+                                                <td><img src="/images/{{ $article->img }}" width="100px" alt="">
+                                                </td>
                                                 <td>{{ $article->title }}</td>
                                                 <td>{{ $article->name }}</td>
                                                 <td>{{ $article->content }}</td>

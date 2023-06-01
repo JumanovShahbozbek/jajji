@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::orderBy('id', 'DESC')->paginate(3);
-        
+
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -32,8 +32,6 @@ class CategoryController extends Controller
 
     public function show($id)
     {
-        /* $posts = Post::find($id); */
-
         $category = Category::find($id);
 
         return view('admin.categories.show', compact('category'));
@@ -57,6 +55,6 @@ class CategoryController extends Controller
     {
         Category::find($id)->delete();
 
-        return redirect()->route('admin.categories.index')->with('success', 'Malumot mavaffaqiyatli ochirildi');
+        return redirect()->route('admin.categories.index')->with('danger', 'Malumot mavaffaqiyatli ochirildi');
     }
 }

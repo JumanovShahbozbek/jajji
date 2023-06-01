@@ -37,7 +37,7 @@ class ComentController extends Controller
 
         Coment::create($requestData);
 
-        return redirect(route('admin.coments.index'));
+        return redirect(route('admin.coments.index'))->with('success', 'Malumot muvaffaqiyatli qoshildi');
     }
 
 
@@ -79,7 +79,7 @@ class ComentController extends Controller
 
         $coment->update($requestData);
 
-        return redirect()->route('admin.coments.index');
+        return redirect()->route('admin.coments.index')->with('success', 'Malumot mavaffaqiyatli ozgartirildi');
     }
 
 
@@ -95,7 +95,7 @@ class ComentController extends Controller
 
         $coment->delete();
 
-        return redirect()->route('admin.coments.index');
+        return redirect()->route('admin.coments.index')->with('danger', 'Malumot muvaffaqiyatli ochirildi');
     }
 
     public function upload_file()

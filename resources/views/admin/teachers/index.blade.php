@@ -9,8 +9,14 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
+
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+                    @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -19,16 +25,8 @@
 
                         <div class="card-header">
                             <h4>Teachers</h4>
-
-                            @if (count($teachers) < 10)
                                 <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary"
                                     style="position:absolute; right:50;">Create</a>
-                            @else
-                                <div class="card-header nav justify-content-center">
-                                    <p> Boshqa malumot kiritib bolmaydi</p>
-                                </div>
-                            @endif
-
                         </div>
 
                         <div class="card-body">
@@ -45,6 +43,7 @@
                                             <th>instagram</th>
                                             <th>name</th>
                                             <th>subject</th>
+                                            <th>Darajasi</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -68,6 +67,7 @@
                                                 <td>{{ $teacher->insta }}</td>
                                                 <td>{{ $teacher->name }}</td>
                                                 <td>{{ $teacher->job }}</td>
+                                                <td>{{ $teacher->status }}</td>
                                                 <td><br><br>
 
                                                     <form action="{{ route('admin.teachers.destroy', $teacher->id) }}"
@@ -94,7 +94,7 @@
 
                                     </tbody>
                                 </table>
-                                {{ $teachers->links() }}
+                               {{--  {{ $teachers->links() }} --}}
                             </div>
                         </div>
                     </div>

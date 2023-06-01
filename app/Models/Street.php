@@ -11,7 +11,7 @@ class Street extends Model
 
     protected $guarded = [];
 
-    public function region()
+    /* public function region()
     {
         return $this->belongsTo(Region::class);
     }
@@ -19,5 +19,5 @@ class Street extends Model
     public function district()
     {
         return $this->belongsTo(District::class);
-    }
+    } */
 }

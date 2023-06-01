@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="card mb-4">
-        <div class="card-header"><strong>Infos</strong></div>
+        <div class="card-header"><strong>Gallaries</strong></div>
 
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -19,10 +19,10 @@
             </div>
         @endif
 
-            <div class="card-header nav justify-content-center">
-                <a href="{{ route('admin.infos.create') }}" class="btn btn-primary"
-                    style="position:absolute; right:50;">Create</a>
-            </div><br>
+        <div class="card-header nav justify-content-center">
+            <a href="{{ route('admin.gallaries.create') }}" class="btn btn-primary"
+                style="position:absolute; right:50;">Create</a>
+        </div><br>
 
         <div class="card-body">
             <div class="table-responsive">
@@ -32,14 +32,12 @@
                             <th class="text-center">
                                 #
                             </th>
-                            <th>title</th>
-                            <th>icon</th>
-                            <th>description</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if (count($infos) == 0)
+                        @if (count($gallaries) == 0)
                             <tr>
                                 <td colspan="5" class="h5 text-center text-muted">Ma'lumot
                                     qo'shilmagan
@@ -47,24 +45,21 @@
                             </tr>
                         @endif
 
-                        @foreach ($infos as $info)
+                        @foreach ($gallaries as $gallary)
                             <tr>
                                 <td>
                                     {{ ++$loop->index }}
                                 </td>
-                                <td>{{ $info->title }}</td>
-                                <td><img src="/icon/{{ $info->icon }}" alt="" width="70px">
+                                <td><img src="/images/{{ $gallary->image }}" alt="" width="70px">
                                 </td>
-                                <td>{{ $info->description }}</td>
-
                                 <td>
-                                    <form action="{{ route('admin.infos.destroy', $info->id) }}" method="POST">
+                                    <form action="{{ route('admin.gallaries.destroy', $gallary->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('admin.infos.show', $info->id) }}" class="btn btn-info">
+                                        <a href="{{ route('admin.gallaries.show', $gallary->id) }}" class="btn btn-info">
                                             <ion-icon class="fas fa-info-circle"></ion-icon>
                                         </a>
-                                        <a href="{{ route('admin.infos.edit', $info->id) }}" class="btn btn-primary">
+                                        <a href="{{ route('admin.gallaries.edit', $gallary->id) }}" class="btn btn-primary">
                                             <ion-icon class="far fa-edit"></ion-icon>
                                         </a>
                                         <button class="btn btn-danger"
@@ -79,7 +74,7 @@
 
                     </tbody>
                 </table>
-                {{-- {{ $infos->links() }} --}}
+                {{-- {{ $gallaries->links() }} --}}
             </div>
         </div>
 

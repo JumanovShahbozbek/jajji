@@ -6,10 +6,11 @@
         <div class="row align-items-center px-3">
             <div class="col-lg-6 text-center text-lg-left">
                 <h4 class="text-white mb-4 mt-5 mt-lg-0">Shavkat Mirziyoyev:</h4>
-                <h1 class="display-3 font-weight-bold text-white">"Maktabgacha ta'lim sohasida zamonaviy tizim yaratish muhim vazifamizdir"</h1>
+                <h1 class="display-3 font-weight-bold text-white">"Maktabgacha ta'lim sohasida zamonaviy tizim yaratish muhim
+                    vazifamizdir"</h1>
                 <!-- <p class="text-white mb-4">Sea ipsum kasd eirmod kasd magna, est sea et diam ipsum est amet sed sit.
-                    Ipsum dolor no justo dolor et, lorem ut dolor erat dolore sed ipsum at ipsum nonumy amet. Clita
-                    lorem dolore sed stet et est justo dolore.</p> -->
+                        Ipsum dolor no justo dolor et, lorem ut dolor erat dolore sed ipsum at ipsum nonumy amet. Clita
+                        lorem dolore sed stet et est justo dolore.</p> -->
                 <!-- <a href="" class="btn btn-secondary mt-1 py-3 px-5">Ko'proq ma'lumot olish</a> -->
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -22,14 +23,14 @@
 
     <!-- Facilities Start -->
 
-        @include('section.facility')
+    @include('section.facility')
 
     <!-- Facilities Start -->
 
 
     <!-- About Start -->
 
-        @include('section.about')
+    @include('section.about')
 
     <!-- About End -->
 
@@ -51,7 +52,7 @@
 
     <!-- Registration Start -->
 
-        @include('section.registr')
+    @include('section.registr')
 
     <!-- Registration End -->
 
@@ -64,7 +65,12 @@
                 <h1 class="mb-4">O'qituvchilarimiz bilan tanishing</h1>
             </div>
 
-            @include('section.teachers')
+            @foreach ($teachers as $teacher)
+                @if ($teacher->status == 1)
+                    @include('section.teachers')
+                @endif
+            @endforeach
+
 
         </div>
     </div>

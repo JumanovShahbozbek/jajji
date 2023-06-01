@@ -33,7 +33,7 @@ class GroupController extends Controller
 
         Group::create($requestData);
 
-        return redirect(route('admin.groups.index'));
+        return redirect(route('admin.groups.index'))->with('success', 'Malumot muvaffaqiyatli qoshildi');
     }
 
 
@@ -57,10 +57,8 @@ class GroupController extends Controller
     {
         $requestData = $request->all();
 
-        if ($request->hasFile('image')) 
-        {
-            if (isset($group->icon) && file_exists(public_path('/images/' . $group->icon))) 
-            {
+        if ($request->hasFile('image')) {
+            if (isset($group->icon) && file_exists(public_path('/images/' . $group->icon))) {
                 unlink(public_path('/images/' . $group->icon));
             }
 
@@ -69,20 +67,19 @@ class GroupController extends Controller
 
         $group->update($requestData);
 
-        return redirect(route('admin.groups.index'));
+        return redirect(route('admin.groups.index'))->with('success', 'Malumot mavaffaqiyatli ozgartirildi');
     }
 
 
     public function destroy(Group $group)
     {
-        if (isset($group->icon) && file_exists(public_path('/images/' . $group->icon))) 
-        {
+        if (isset($group->icon) && file_exists(public_path('/images/' . $group->icon))) {
             unlink(public_path('/images/' . $group->icon));
         }
 
         $group->delete();
 
-        return redirect()->route('admin.groups.index');
+        return redirect()->route('admin.groups.index')->with('danger', 'Malumot muvaffaqiyatli ochirildi');
     }
 
     public function upload_file()

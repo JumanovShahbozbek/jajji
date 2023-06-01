@@ -37,6 +37,12 @@
     </svg> Articles</a>
 </li>
 
+<li class="nav-item"><a class="nav-link" href="{{ route('admin.gallaries.index') }}">
+    <svg class="nav-icon">
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
+    </svg> Gallary</a>
+</li>
+
 {{-- <li class="nav-title">Client</li>
 
 <li class="nav-item"><a class="nav-link" href="{{ route('admin.humans.index') }}">

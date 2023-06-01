@@ -9,11 +9,18 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
+
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+                    @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
                     <div class="card">
                         <div class="card-header">
                             <h4>Viloyatlar</h4>
@@ -29,7 +36,7 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Mahalla</th>                                        
+                                            <th>Mahalla</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

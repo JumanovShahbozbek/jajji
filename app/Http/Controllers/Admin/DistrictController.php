@@ -59,6 +59,6 @@ class DistrictController extends Controller
     {
         District::find($id)->delete();
 
-        return redirect()->route('admin.districts.index')->with('success', 'Malumot mavaffaqiyatli ochirildi');
+        return redirect()->route('admin.districts.index')->with('danger', 'Malumot mavaffaqiyatli ochirildi');
     } 
 }

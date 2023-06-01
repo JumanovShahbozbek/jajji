@@ -5,8 +5,8 @@
         <a href="/group" class="nav-item nav-link @yield('group') ">Sinflar</a>
         <a href="/team" class="nav-item nav-link @yield('team') ">O'qituvchilar</a>
         <a href="/achievements" class="nav-item nav-link @yield('achievements') ">Yutuqlar</a>
-        <a href="/gallery" class="nav-item nav-link" @yield('gallery')>Galereya</a>
-        <a href="/blog" class="nav-item nav-link" @yield('blog')>Maqolalar</a>
+        <a href="/gallery" class="nav-item nav-link @yield('gallery')">Galereya</a>
+        <a href="/blog" class="nav-item nav-link @yield('blog')">Maqolalar</a>
         <a href="/contact" class="nav-item nav-link">Aloqa</a>
     </div>
 </div>
