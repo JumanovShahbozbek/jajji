@@ -57,13 +57,8 @@ class ArticleController extends Controller
     {
         $requestData = $request->all();
 
-        if ($request->hasFile('img')) 
-        {
-            if(isset($article->icon) && file_exists(public_path('/images/'. $article->icon)))
-            {
-                unlink(public_path('/images/'. $article->icon));
-            }
-
+        if ($request->hasFile('img')) {
+            $this->unlink_file($article);
             $requestData['img'] = $this->upload_file();
         }
 
@@ -75,10 +70,7 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
-        if(isset($article->icon) && file_exists(public_path('/images/'. $article->icon)))
-        {
-            unlink(public_path('/images/'. $article->icon));
-        }
+        $this->unlink_file($article);
         $article->delete();
 
         return redirect(route('admin.articles.index'))->with('danger', 'Malumot muvaffaqiyatli ochirildi');
@@ -91,5 +83,12 @@ class ArticleController extends Controller
         $file->move('images/', $fileName);
         $requestData['img'] = $fileName;
         return $fileName;
+    }
+
+    public function unlink_file(Article $article)
+    {
+        if (isset($article->icon) && file_exists(public_path('/images/' . $article->icon))) {
+            unlink(public_path('/images/' . $article->icon));
+        }
     }
 }

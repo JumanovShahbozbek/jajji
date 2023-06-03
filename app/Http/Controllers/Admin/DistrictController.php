@@ -35,7 +35,6 @@ class DistrictController extends Controller
     public function show($id)
     {
         $district = District::find($id);
-        // return $district;
         return view('admin.districts.show', compact('district'));
     }
 

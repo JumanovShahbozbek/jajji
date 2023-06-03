@@ -62,18 +62,12 @@ class ComentController extends Controller
         $requestData = $request->all();
 
         if ($request->hasFile('icon')) {
-            if (isset($coment->icon) && file_exists(public_path('/icon/' . $coment->icon))) {
-                unlink(public_path('/icon/' . $coment->icon));
-            }
-
+            $this->unlink_file($coment);
             $requestData['icon'] = $this->upload_file();
         }
 
         if ($request->hasFile('img')) {
-            if (isset($coment->icon) && file_exists(public_path('/images/' . $coment->icon))) {
-                unlink(public_path('/images/' . $coment->icon));
-            }
-
+            $this->unlink_image($coment);
             $requestData['img'] = $this->upload_image();
         }
 
@@ -85,13 +79,9 @@ class ComentController extends Controller
 
     public function destroy(Coment $coment)
     {
-        if (isset($coment->icon) && file_exists(public_path('/icon/' . $coment->icon))) {
-            unlink(public_path('/icon/' . $coment->icon));
-        }
+        $this->unlink_file($coment);
 
-        if (isset($coment->icon) && file_exists(public_path('/images/' . $coment->icon))) {
-            unlink(public_path('/images/' . $coment->icon));
-        }
+        $this->unlink_image($coment);
 
         $coment->delete();
 
@@ -107,6 +97,13 @@ class ComentController extends Controller
         return $fileName;
     }
 
+    public function unlink_file(Coment $coment)
+    {
+        if (isset($coment->icon) && file_exists(public_path('/icon/' . $coment->icon))) {
+            unlink(public_path('/icon/' . $coment->icon));
+        }
+    }
+
     public function upload_image()
     {
         $file = request()->file('img');
@@ -114,5 +111,12 @@ class ComentController extends Controller
         $file->move('images/', $fileName);
         $requestData['img'] = $fileName;
         return $fileName;
+    }
+
+    public function unlink_image(Coment $coment)
+    {
+        if (isset($coment->icon) && file_exists(public_path('/images/' . $coment->icon))) {
+            unlink(public_path('/images/' . $coment->icon));
+        }
     }
 }

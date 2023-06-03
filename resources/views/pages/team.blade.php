@@ -28,7 +28,7 @@
             </div>
 
             <div class="row">
-                @foreach ($teachers as $teacher)
+                @foreach ($teachers1 as $teacher)
                     @if ($teacher->status == 1)
                         @include('section.teachers')
                     @endif

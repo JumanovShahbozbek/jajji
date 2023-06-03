@@ -18,6 +18,12 @@
         </div>
     @endif
 
+    @if ($message = Session::get('danger'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
     <section class="section">
         <div class="section-body">
 
@@ -30,7 +36,7 @@
                         <div class="card-body">
                             <form action="{{ route('admin.teachers.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                
+
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Darajasi</label>
                                     <div class="col-sm-12 col-md-7">

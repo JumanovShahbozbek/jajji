@@ -22,6 +22,14 @@
                                 <table class="table table-striped" id="table-1">
                                     <thead>
                                         <tr>
+                                            <td>Darajasi:</td>
+                                            @if ($teacher->status == 0)
+                                                <td>Rahbariyat</td>
+                                            @else 
+                                                <td>Oqituvchi</td>
+                                            @endif
+                                        </tr>
+                                        <tr>
                                             <td>image : </td>
                                             <td><b><img src="/images/{{ $teacher->image }}" width="100px"
                                                         alt=""></b></td>
@@ -37,7 +45,7 @@
                                         <tr>
                                             <td>Instagram : </td>
                                             <td><b>{{ $teacher->insta }}</b></td>
-                                        </tr>                                   
+                                        </tr>
                                         <tr>
                                             <td>Name : </td>
                                             <td><b>{{ $teacher->name }}</b></td>

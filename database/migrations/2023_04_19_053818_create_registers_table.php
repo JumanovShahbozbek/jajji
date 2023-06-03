@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('registers', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->integer('number')->nullable();
+            $table->string('number')->nullable();
             $table->string('email')->nullable();
             $table->timestamps();
         });

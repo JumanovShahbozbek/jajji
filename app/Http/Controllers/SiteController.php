@@ -17,8 +17,8 @@ class SiteController extends Controller
     {
         $infos = Info::orderBy('id', 'DESC')->take(6)->get();
         $groups = Group::orderBy('id', 'DESC')->take(3)->get();
-        $teachers = Teacher::orderBy('id', 'DESC')->take(4)->get();
-        $coments = Coment::orderBy('id', 'DESC')->get();
+        $teachers = Teacher::orderBy('id', 'DESC')->where('status', 1)->take(4)->get();
+        $coments = Coment::orderBy('id', 'DESC')->take(4)->get();
         $articles = Article::orderBy('id', 'DESC')->take(3)->get();
 
         return view('welcome', compact('infos', 'groups','teachers','coments', 'articles'));
@@ -33,10 +33,11 @@ class SiteController extends Controller
 
     public function team()
     {
-        $teachers = Teacher::orderBy('id', 'DESC')/* ->take(4) */->get();
+        $teachers = Teacher::orderBy('id', 'DESC')->where('status', 0)->take(4)->get();
+        $teachers1 = Teacher::orderBy('id', 'DESC')->where('status', 1)->take(8)->get();
         $coments = Coment::orderBy('id', 'DESC')->get();
 
-        return view('pages.team', compact('teachers', 'coments'));
+        return view('pages.team', compact('teachers', 'coments', 'teachers1'));
     }
 
     public function achievements()

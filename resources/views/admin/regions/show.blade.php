@@ -34,7 +34,7 @@
                                                 </b>
                                             </td>
                                         </tr>
-                                        {{-- <tr>
+                                        <tr>
                                             <td>Mahalla:</td>
                                             <td><b>
                                                     @foreach ($region->streets as $region)
@@ -42,7 +42,7 @@
                                                     @endforeach
                                                 </b>
                                             </td>
-                                        </tr> --}}
+                                        </tr>
                                     </thead>
                                 </table>
                             </div>

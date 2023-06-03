@@ -58,9 +58,7 @@ class GroupController extends Controller
         $requestData = $request->all();
 
         if ($request->hasFile('image')) {
-            if (isset($group->icon) && file_exists(public_path('/images/' . $group->icon))) {
-                unlink(public_path('/images/' . $group->icon));
-            }
+            $this->unlink_file($group);
 
             $requestData['image'] = $this->upload_file();
         }
@@ -73,13 +71,18 @@ class GroupController extends Controller
 
     public function destroy(Group $group)
     {
-        if (isset($group->icon) && file_exists(public_path('/images/' . $group->icon))) {
-            unlink(public_path('/images/' . $group->icon));
-        }
+        $this->unlink_file($group);
 
         $group->delete();
 
         return redirect()->route('admin.groups.index')->with('danger', 'Malumot muvaffaqiyatli ochirildi');
+    }
+
+    public function unlink_file(Group $group)
+    {
+        if (isset($group->icon) && file_exists(public_path('/images/' . $group->icon))) {
+            unlink(public_path('/images/' . $group->icon));
+        }
     }
 
     public function upload_file()

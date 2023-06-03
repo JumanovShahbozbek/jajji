@@ -29,7 +29,7 @@ class TeacherStoreRequest extends FormRequest
             'fbook' => 'required|max:20',
             'insta' => 'required|max:20',            
             'name' => 'required|min:2|max:40',
-            'job' => 'required|min:2|max:15',
+            'job' => 'required|min:2|max:25',
         ];
     }
 

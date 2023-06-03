@@ -19,12 +19,22 @@ class TeacherController extends Controller
 
     public function create()
     {
+        /* $teacher = Teacher::count();
+        if (($teacher->status == 0) >= 4 or ($teacher->status == 1) >= 8) 
+            return back()->with('danger', 'status boyicha malumot qoshib bolmaydi');
+        else */
         return view('admin.teachers.create');
     }
 
 
     public function store(TeacherStoreRequest $request)
     {
+        /* if (Teacher::count('status', 1) >= 8)
+            return redirect(route('admin.teachers.create'))->with('danger', 'status boyicha malumot qoshib bolmaydi');
+        elseif (Teacher::count('status', 0) >= 4)
+            return redirect(route('admin.teachers.create'))->with('danger', 'status boyicha malumot qoshib bolmaydi');
+        else */
+
         $requestData = $request->all();
 
         if ($request->hasFile('image')) {
@@ -57,12 +67,8 @@ class TeacherController extends Controller
     {
         $requestData = $request->all();
 
-        if ($request->hasFile('image')) 
-        {
-            if (isset($teacher->icon) && file_exists(public_path('/images/' . $teacher->icon))) 
-            {
-                unlink(public_path('/images/' . $teacher->icon));
-            }
+        if ($request->hasFile('image')) {
+            $this->unlink_file($teacher);
 
             $requestData['image'] = $this->upload_file();
         }
@@ -75,14 +81,18 @@ class TeacherController extends Controller
 
     public function destroy(Teacher $teacher)
     {
-        if(isset($teacher->image) && file_exists(public_path('/image/'. $teacher->icon)))
-        {
-            unlink(public_path('/images/'. $teacher->icon));
-        }
+        $this->unlink_file($teacher);
 
         $teacher->delete();
 
         return redirect(route('admin.teachers.index'))->with('danger', 'Malumot muvaffaqiyatli ochirildi');
+    }
+
+    public function unlink_file(Teacher $teacher)
+    {
+        if (isset($teacher->image) && file_exists(public_path('/image/' . $teacher->icon))) {
+            unlink(public_path('/images/' . $teacher->icon));
+        }
     }
 
     public function upload_file()

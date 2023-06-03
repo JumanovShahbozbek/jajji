@@ -25,8 +25,8 @@
 
                         <div class="card-header">
                             <h4>Teachers</h4>
-                                <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary"
-                                    style="position:absolute; right:50;">Create</a>
+                            <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary"
+                                style="position:absolute; right:50;">Create</a>
                         </div>
 
                         <div class="card-body">
@@ -67,7 +67,12 @@
                                                 <td>{{ $teacher->insta }}</td>
                                                 <td>{{ $teacher->name }}</td>
                                                 <td>{{ $teacher->job }}</td>
-                                                <td>{{ $teacher->status }}</td>
+                                                <td>
+                                                    @if ($teacher->status == 0)
+                                                        Rahbariyat
+                                                    @else
+                                                        Oqituvchi
+                                                    @endif
                                                 <td><br><br>
 
                                                     <form action="{{ route('admin.teachers.destroy', $teacher->id) }}"
@@ -94,7 +99,7 @@
 
                                     </tbody>
                                 </table>
-                               {{--  {{ $teachers->links() }} --}}
+                                {{--  {{ $teachers->links() }} --}}
                             </div>
                         </div>
                     </div>
