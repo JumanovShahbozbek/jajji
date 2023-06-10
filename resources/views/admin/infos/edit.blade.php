@@ -45,7 +45,8 @@
                     @enderror
 
                     <strong> Description :</strong>
-                    <input type="text" name="description" value="{{ $info->description }}" class="form-control"> <br>
+                    <textarea class="ckeditor form-control" name="description" value="{{ $info->description }}"></textarea>
+                    {{-- <input type="text" name="description" value="{{ $info->description }}" class="form-control"> <br> --}}
                     @error('description')
                         {{$message}}
                     @enderror

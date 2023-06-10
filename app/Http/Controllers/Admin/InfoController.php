@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\AuditEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Info;
 use Illuminate\Http\Request;
@@ -28,12 +29,13 @@ class InfoController extends Controller
 
     public function store(InfoStoreRequest $request, Info $info)
     {
-        $requestData = $request->all();
+        $user = auth()->user()->name;
+        event(new AuditEvent('create', 'infos', $user, $info));
 
+        $requestData = $request->all();
         if ($request->hasFile('icon')) {
             $requestData['icon'] = $this->upload_file();
         }
-
         Info::create($requestData);
 
         return redirect(route('admin.infos.index'))->with('success', 'Malumot muvaffaqiyatli qoshildi');
@@ -58,26 +60,26 @@ class InfoController extends Controller
 
     public function update(InfoStoreRequest $request, Info $info)
     {
-        $requestData = $request->all();
+        $user = auth()->user()->name;
+        event(new AuditEvent('edit', 'infos', $user, $info));
 
+        $requestData = $request->all();
         if ($request->hasFile('icon')) {
             $this->unlink_file($info);
-
             $requestData['icon'] = $this->upload_file();
         }
-
         $info->update($requestData);
-
         return redirect(route('admin.infos.index'))->with('success', 'Malumot muvaffaqiyatli ozgartirildi');
     }
 
 
     public function destroy(Info $info)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('delete', 'infos', $user, $info));
+
         $this->unlink_file($info);
-
         $info->delete();
-
         return redirect()->route('admin.infos.index')->with('danger', 'Malumot muvaffaqiyatli ochirildi');
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\AuditEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeacherStoreRequest;
 use App\Models\Teacher;
@@ -27,13 +28,15 @@ class TeacherController extends Controller
     }
 
 
-    public function store(TeacherStoreRequest $request)
+    public function store(TeacherStoreRequest $request, Teacher $teacher)
     {
         /* if (Teacher::count('status', 1) >= 8)
             return redirect(route('admin.teachers.create'))->with('danger', 'status boyicha malumot qoshib bolmaydi');
         elseif (Teacher::count('status', 0) >= 4)
             return redirect(route('admin.teachers.create'))->with('danger', 'status boyicha malumot qoshib bolmaydi');
         else */
+        $user = auth()->user()->name;
+        event(new AuditEvent('create', 'teachers', $user, $teacher));
 
         $requestData = $request->all();
 
@@ -65,6 +68,8 @@ class TeacherController extends Controller
 
     public function update(TeacherStoreRequest $request, Teacher $teacher)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('edit', 'teachers', $user, $teacher));
         $requestData = $request->all();
 
         if ($request->hasFile('image')) {
@@ -81,6 +86,8 @@ class TeacherController extends Controller
 
     public function destroy(Teacher $teacher)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('delete', 'teachers', $user, $teacher));
         $this->unlink_file($teacher);
 
         $teacher->delete();

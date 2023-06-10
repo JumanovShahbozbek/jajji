@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\AuditEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Models\Article;
@@ -23,8 +24,10 @@ class ArticleController extends Controller
     }
 
 
-    public function store(ArticleStoreRequest $request)
+    public function store(ArticleStoreRequest $request, Article $article)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('create', 'articles', $user, $article));
         $requestData = $request->all();
 
         if ($request->hasFile('img')) {
@@ -55,6 +58,8 @@ class ArticleController extends Controller
 
     public function update(ArticleStoreRequest $request, Article $article)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('edit', 'articles', $user, $article));
         $requestData = $request->all();
 
         if ($request->hasFile('img')) {
@@ -70,6 +75,8 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('delete', 'articles', $user, $article));
         $this->unlink_file($article);
         $article->delete();
 

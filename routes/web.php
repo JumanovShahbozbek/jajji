@@ -41,7 +41,7 @@ Route::post('/registers', [SiteController::class, 'registers'])->name('registers
 Route::post('/copmlants', [SiteController::class, 'copmlants'])->name('copmlants');
 
 
-Route::prefix('admin/')->name('admin.')/* ->middleware('auth') */->group(function () 
+Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function () 
 {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 

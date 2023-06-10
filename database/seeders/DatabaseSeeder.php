@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             // InfoSeeder::class,
         ]);
 
-        \App\Models\User::factory(500000)->create();
+        \App\Models\Info::factory(6)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

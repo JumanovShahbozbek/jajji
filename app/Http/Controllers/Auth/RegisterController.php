@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\LoginEvent;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -64,6 +65,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user = $data['name'];
+        event(new LoginEvent($user));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

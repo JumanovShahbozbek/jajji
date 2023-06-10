@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\AuditEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ComentStoreRequest;
 use App\Models\Coment;
@@ -23,8 +24,10 @@ class ComentController extends Controller
     }
 
 
-    public function store(ComentStoreRequest $request)
+    public function store(ComentStoreRequest $request, Coment $coment)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('create', 'coments', $user, $coment));
         $requestData = $request->all();
 
         if ($request->hasFile('icon')) {
@@ -59,6 +62,8 @@ class ComentController extends Controller
 
     public function update(ComentStoreRequest $request, Coment $coment)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('edit', 'coments', $user, $coment));
         $requestData = $request->all();
 
         if ($request->hasFile('icon')) {
@@ -79,6 +84,8 @@ class ComentController extends Controller
 
     public function destroy(Coment $coment)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('delete', 'coments', $user, $coment));
         $this->unlink_file($coment);
 
         $this->unlink_image($coment);

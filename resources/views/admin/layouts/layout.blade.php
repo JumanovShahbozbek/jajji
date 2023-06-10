@@ -117,14 +117,10 @@
                                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
                                 </svg> Lock Account
                             </a>
-                            <form action="{{ route('logout') }}" class="logout">
+                            <form action="{{ route('logout') }}" class="logout" method="POST">
                                 @csrf
-                                <button type="button" class="dropdown-item">
-                                    <svg class="icon me-2">
-                                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout">
-                                        </use>
-                                    </svg> Logout
-                                </button>
+                                <button class="dropdown-item has-icon text-danger"> <i
+                                        class="fas fa-sign-out-alt"></i> Log out</button>
                             </form>
                         </div>
                     </li>
@@ -140,6 +136,7 @@
                         </li>
                         <li class="breadcrumb-item active"><span>Dashboard</span></li>
                     </ol>
+                    <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
                 </nav>
             </div>
         </header>
@@ -163,6 +160,12 @@
     <script src="/admin/assets/vendors/@coreui/utils/js/coreui-utils.js"></script>
     <script src="/admin/assets/js/main.js"></script>
     <script></script>
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
 
 </body>
 

@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\LoginEvent;
+use App\Listeners\LoginEventListener;
+use App\Events\AuditEvent;
+use App\Listeners\AuditEventListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -15,8 +19,16 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        Registered::class => [
+        /* Registered::class => [
             SendEmailVerificationNotification::class,
+        ], */
+
+        LoginEvent::class => [
+            LoginEventListener::class,
+        ],
+
+        AuditEvent::class => [
+            AuditEventListener::class,
         ],
     ];
 
@@ -39,4 +51,24 @@ class EventServiceProvider extends ServiceProvider
     {
         return false;
     }
+
+	/**
+	 * The event to listener mappings for the application.
+	 * 
+	 * @return array<class-string, array<int, class-string>>
+	 */
+	public function getListen() {
+		return $this->listen;
+	}
+	
+	/**
+	 * The event to listener mappings for the application.
+	 * 
+	 * @param array<class-string, array<int, class-string>> $listen The event to listener mappings for the application.
+	 * @return self
+	 */
+	public function setListen($listen): self {
+		$this->listen = $listen;
+		return $this;
+	}
 }

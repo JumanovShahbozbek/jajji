@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\AuditEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GallaryStoreRequest;
 use App\Models\Gallary;
@@ -24,6 +25,8 @@ class GallaryController extends Controller
     
     public function store(GallaryStoreRequest $request, Gallary $gallary)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('create', 'gallaries', $user, $gallary));
         $requestData = $request->all();
 
         if($request->hasFile('image'))
@@ -55,6 +58,8 @@ class GallaryController extends Controller
    
     public function update(GallaryStoreRequest $request, Gallary $gallary)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('edit', 'gallaries', $user, $gallary));
         $requestData = $request->all();
 
         if($request->hasFile('image'))
@@ -72,6 +77,8 @@ class GallaryController extends Controller
     
     public function destroy( Gallary $gallary)
     {
+        $user = auth()->user()->name;
+        event(new AuditEvent('delete', 'gallaries', $user, $gallary));
         $this->unlink_file($gallary);
 
         $gallary->delete();
