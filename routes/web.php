@@ -30,35 +30,55 @@ use App\Http\Controllers\Admin\TeacherController;
 |
 */
 
-Route::get('/', [SiteController::class, 'welcome']);
-Route::get('/group', [SiteController::class, 'group']);
-Route::get('/team', [SiteController::class, 'team']);
-Route::get('/achievements', [SiteController::class, 'achievements']);
-Route::get('/gallery', [SiteController::class, 'gallery']);
-Route::get('/blog', [SiteController::class, 'blog']);
+Route::auto('/', SiteController::class);
 
-Route::post('/registers', [SiteController::class, 'registers'])->name('registers');
-Route::post('/copmlants', [SiteController::class, 'copmlants'])->name('copmlants');
+Route::get('/', function(){
+    return redirect('/welcome');
+});
+// Route::get('/group', [SiteController::class, 'group']);
+// Route::get('/team', [SiteController::class, 'team']);
+// Route::get('/achievements', [SiteController::class, 'achievements']);
+// Route::get('/gallery', [SiteController::class, 'gallery']);
+// Route::get('/blog', [SiteController::class, 'blog']);
+
+// Route::post('/registers', [SiteController::class, 'registers'])->name('registers');
+// Route::post('/copmlants', [SiteController::class, 'copmlants'])->name('copmlants');
 
 
-Route::prefix('admin/')->name('admin.')->middleware('auth')->group(function () 
+Route::prefix('admin/')->name('admin.')->middleware(['auth', 'admin'])->group(function () 
 {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-    Route::resource('/infos', InfoController::class);
-    Route::resource('/groups', GroupController::class);
-    Route::resource('/teachers', TeacherController::class);
-    Route::resource('/coments', ComentController::class);
-    Route::resource('/articles', ArticleController::class);
-    Route::resource('/gallaries', GallaryController::class);
+    Route::resources([
+        '/infos' => InfoController::class,
+        '/groups' => GroupController::class,
+        '/teachers' => TeacherController::class,
+        '/coments' => ComentController::class,
+        '/articles' => ArticleController::class,
+        '/gallaries' => GallaryController::class,
 
-    Route::resource('/humans', HumanController::class);
-    Route::resource('/numbers', NumberController::class);
-    Route::resource('/categories', CategoryController::class);
-    Route::resource('/posts', PostController::class);
-    Route::resource('/regions', RegionController::class);
-    Route::resource('/districts', DistrictController::class);
-    Route::resource('/streets', StreetController::class);
+        '/humans' => HumanController::class,
+        '/numbers' => NumberController::class,
+        '/categories' => CategoryController::class,
+        '/posts' => PostController::class,
+        '/regions' => RegionController::class,
+        '/districts' => DistrictController::class,
+        '/streets' => StreetController::class,
+    ]);
+    // Route::resource('/infos', InfoController::class);
+    // Route::resource('/groups', GroupController::class);
+    // Route::resource('/teachers', TeacherController::class);
+    // Route::resource('/coments', ComentController::class);
+    // Route::resource('/articles', ArticleController::class);
+    // Route::resource('/gallaries', GallaryController::class);
+
+    // Route::resource('/humans', HumanController::class);
+    // Route::resource('/numbers', NumberController::class);
+    // Route::resource('/categories', CategoryController::class);
+    // Route::resource('/posts', PostController::class);
+    // Route::resource('/regions', RegionController::class);
+    // Route::resource('/districts', DistrictController::class);
+    // Route::resource('/streets', StreetController::class);
 });
 
 Auth::routes();

@@ -137,7 +137,7 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h3 class="text-primary mb-4">Shikoyat</h3>
-                <form action="{{ route('copmlants') }}" method="POST">
+                <form action="/copmlants" method="POST">
                     @csrf
                     @method('POST')
                     <div class="form-group">

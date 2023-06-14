@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
-    public function welcome()
+    public function get_welcome()
     {
         $infos = Info::orderBy('id', 'DESC')->take(6)->get();
         $groups = Group::orderBy('id', 'DESC')->take(3)->get();
@@ -24,14 +24,14 @@ class SiteController extends Controller
         return view('welcome', compact('infos', 'groups','teachers','coments', 'articles'));
     }
 
-    public function group()
+    public function get_group()
     {
         $groups = Group::orderBy('id', 'DESC')->get();
 
         return view('pages.group', compact('groups'));
     }
 
-    public function team()
+    public function get_team()
     {
         $teachers = Teacher::orderBy('id', 'DESC')->where('status', 0)->take(4)->get();
         $teachers1 = Teacher::orderBy('id', 'DESC')->where('status', 1)->take(8)->get();
@@ -40,28 +40,28 @@ class SiteController extends Controller
         return view('pages.team', compact('teachers', 'coments', 'teachers1'));
     }
 
-    public function achievements()
+    public function get_achievements()
     {   
         $articles = Article::orderBy('id', 'DESC')->get();
 
         return view('pages.achievements', compact('articles'));
     }
 
-    public function gallery()
+    public function get_gallery()
     {
         $gallaries = Gallary::orderBy('id', 'DESC')->get();
 
         return view('pages.gallery', compact('gallaries'));
     }
 
-    public function blog()
+    public function get_blog()
     {
         $articles = Article::orderBy('id', 'DESC')->get();
 
         return view('pages.blog', compact('articles'));
     }
 
-    public function registers(Request $request)
+    public function post_registers(Request $request)
     {
         // return $request;
         DB::table('registers')->insert([
@@ -73,7 +73,7 @@ class SiteController extends Controller
         return back();
     }
 
-    public function copmlants(Request $request)
+    public function post_copmlants(Request $request)
     {
         
         DB::table('copmlants')->insert([
