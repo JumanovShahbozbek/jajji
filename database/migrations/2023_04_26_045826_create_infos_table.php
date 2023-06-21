@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('infos', function (Blueprint $table) {
             $table->id();
-            $table->text('title')->nullable();
+            $table->text('title_uz')->nullable();
+            $table->text('title_ru')->nullable();
+            $table->text('title_en')->nullable();
             $table->string('icon')->nullable();
-            $table->text('description')->nullable();
+            $table->text('description_uz')->nullable();
+            $table->text('description_ru')->nullable();
+            $table->text('description_en')->nullable();
             $table->timestamps();
         });
     }

@@ -24,12 +24,12 @@ class ComentStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'icon' => 'required|max:3072',
+            /* 'icon' => 'required|max:3072',
             'content' => 'required|min:10|max:100',
             'img' => 'required|max:3072',
             'surname' => 'required|min:4|max:30',
             'name' => 'required|min:3|max:30',
-            'job' => 'required|min:5|max:30',
+            'job' => 'required|min:5|max:30', */
         ];
     }
 }

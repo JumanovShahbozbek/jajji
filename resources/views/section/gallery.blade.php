@@ -1,8 +1,8 @@
 <div class="container-fluid pt-5 pb-3">
     <div class="container">
         <div class="text-center pb-2">
-            <p class="section-title px-5"><span class="px-2">Bizning galereyamiz</span></p>
-            <h1 class="mb-4">Bizning bolajonlarimiz</h1>
+            <p class="section-title px-5"><span class="px-2"> @lang('staticinfo.gallery') </span></p>
+            <h1 class="mb-4"> @lang('staticinfo.gainfo') </h1>
         </div>
         <!-- <div class="row">
             <div class="col-12 text-center mb-2">

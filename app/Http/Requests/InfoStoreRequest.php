@@ -24,20 +24,20 @@ class InfoStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:5|max:40',
+            /* 'title' => 'required|min:5|max:40',
             'icon' => 'required|max:2048|mimes:png,jpg,',
-            'description' => 'required|min:5|max:150',
+            'description' => 'required|min:5|max:150', */
         ];
     }
 
     public function messages()
     {
         return[
-            'title.required' => 'Sarlavha bolishi shart !',
+            /* 'title.required' => 'Sarlavha bolishi shart !',
             'title.min'=> 'Sarlavha kamida 5 belgidan iborat bolishi kerak !',
             'title.max' => 'Sarlavha 40 belgidan oshmasligi kerak !',
             'icon.required' => 'Rasm joylanishi shart !',
-            'description.required' => 'Malumot kiritilishi shart !',
+            'description.required' => 'Malumot kiritilishi shart !', */
         ];
     }
 }

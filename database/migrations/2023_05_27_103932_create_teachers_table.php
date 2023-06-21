@@ -20,7 +20,9 @@ return new class extends Migration
             $table->text('fbook')->nullable();
             $table->text('insta')->nullable();
             $table->text('name')->nullable();
-            $table->text('job')->nullable();
+            $table->text('job_uz')->nullable();
+            $table->text('job_ru')->nullable();
+            $table->text('job_en')->nullable();
             $table->integer('status')->nullable();
             $table->timestamps();
         });

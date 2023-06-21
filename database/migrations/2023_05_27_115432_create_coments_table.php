@@ -16,11 +16,15 @@ return new class extends Migration
         Schema::create('coments', function (Blueprint $table) {
             $table->id();
             $table->text('icon')->nullable();
-            $table->text('content')->nullable();
+            $table->text('content_uz')->nullable();
+            $table->text('content_ru')->nullable();
+            $table->text('content_en')->nullable();
             $table->text('img')->nullable();
             $table->text('surname')->nullable();
             $table->text('name')->nullable();
-            $table->text('job')->nullable();
+            $table->text('job_uz')->nullable();
+            $table->text('job_ru')->nullable();
+            $table->text('job_en')->nullable();
             $table->timestamps();
         });
     }

@@ -37,9 +37,13 @@
                                                 #
                                             </th>
                                             <th>img</th>
-                                            <th>title</th>
+                                            <th>title uz</th>
+                                            <th>title ru</th>
+                                            <th>title en</th>
                                             <th>name</th>
-                                            <th>content</th>
+                                            <th>content uz</th>
+                                            <th>content ru</th>
+                                            <th>content en</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -58,9 +62,13 @@
                                                 </td>
                                                 <td><img src="/images/{{ $article->img }}" width="100px" alt="">
                                                 </td>
-                                                <td>{{ $article->title }}</td>
+                                                <td>{{ $article->title_uz }}</td>
+                                                <td>{{ $article->title_ru }}</td>
+                                                <td>{{ $article->title_en }}</td>
                                                 <td>{{ $article->name }}</td>
-                                                <td>{{ $article->content }}</td>
+                                                <td>{{ $article->content_uz }}</td>
+                                                <td>{{ $article->content_ru }}</td>
+                                                <td>{{ $article->content_en }}</td>
 
                                                 <td>
                                                     <form action="{{ route('admin.articles.destroy', $article->id) }}"

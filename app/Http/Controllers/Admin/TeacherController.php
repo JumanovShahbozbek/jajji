@@ -20,21 +20,22 @@ class TeacherController extends Controller
 
     public function create()
     {
-        /* $teacher = Teacher::count();
-        if (($teacher->status == 0) >= 4 or ($teacher->status == 1) >= 8) 
-            return back()->with('danger', 'status boyicha malumot qoshib bolmaydi');
-        else */
+        if (Teacher::count() >= 12)
+            return back()->with('danger', 'malumot qoshib bolmaydi');
+
         return view('admin.teachers.create');
     }
 
 
     public function store(TeacherStoreRequest $request, Teacher $teacher)
     {
-        /* if (Teacher::count('status', 1) >= 8)
-            return redirect(route('admin.teachers.create'))->with('danger', 'status boyicha malumot qoshib bolmaydi');
-        elseif (Teacher::count('status', 0) >= 4)
-            return redirect(route('admin.teachers.create'))->with('danger', 'status boyicha malumot qoshib bolmaydi');
-        else */
+        if (Teacher::where('status', 0)->count() >= 4) 
+            return back()->with('danger', 'raxbariyat boyicha malumot qoshib bolmaydi');
+    
+        if (Teacher::where('status', 1)->count() >= 8) 
+            return back()->with('danger', 'oqituvchilar boyicha malumot qoshib bolmaydi');
+        
+
         $user = auth()->user()->name;
         event(new AuditEvent('create', 'teachers', $user, $teacher));
 

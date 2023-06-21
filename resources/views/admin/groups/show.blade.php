@@ -28,15 +28,35 @@
                                         </tr>
 
                                         <tr>
-                                            <td>Info : </td>
-                                            <td><b>{{ $group->title }}</b></td>
+                                            <td>Info uz: </td>
+                                            <td><b>{{ $group->title_uz }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Info ru: </td>
+                                            <td><b>{{ $group->title_ru }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Info en: </td>
+                                            <td><b>{{ $group->title_en }}</b></td>
                                         </tr>
 
                                         <tr>
                                             <td>
-                                                <p>Con : </p>
+                                                <p>Con uz: </p>
                                             </td>
-                                            <td><b>{{ $group->content }}</b></td>
+                                            <td><b>{{ $group->content_uz }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Con ru: </p>
+                                            </td>
+                                            <td><b>{{ $group->content_ru }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Con en: </p>
+                                            </td>
+                                            <td><b>{{ $group->content_en }}</b></td>
                                         </tr>
 
                                         <tr>

@@ -46,8 +46,12 @@
                                                 #
                                             </th>
                                             <th>image</th>
-                                            <th>title</th>
-                                            <th>content</th>
+                                            <th>title uz</th>
+                                            <th>title ru</th>
+                                            <th>title en</th>
+                                            <th>content uz</th>
+                                            <th>content ru</th>
+                                            <th>content en</th>
                                             <th>age</th>
                                             <th>seat</th>
                                             <th>time</th>
@@ -70,8 +74,12 @@
                                                 </td>
                                                 <td><img src="/images/{{ $group->image }}" width="100px" alt="">
                                                 </td>
-                                                <td>{{ $group->title }}</td>
-                                                <td>{{ $group->content }}</td>
+                                                <td>{{ $group->title_uz }}</td>
+                                                <td>{{ $group->title_ru }}</td>
+                                                <td>{{ $group->title_en }}</td>
+                                                <td>{{ $group->content_uz }}</td>
+                                                <td>{{ $group->content_ru }}</td>
+                                                <td>{{ $group->content_en }}</td>
                                                 <td>{{ $group->age }}</td>
                                                 <td>{{ $group->seat }}</td>
                                                 <td>{{ $group->time }}</td>

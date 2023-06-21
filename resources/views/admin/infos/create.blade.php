@@ -32,11 +32,31 @@
                                 @csrf
 
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">title</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">title uz</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="title"
-                                            value="{{ old('title') }}">
-                                        @error('title')
+                                        <input type="text" class="form-control" name="title_uz"
+                                            value="{{ old('title_uz') }}">
+                                        @error('title_uz')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">title ru</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" name="title_ru"
+                                            value="{{ old('title_ru') }}">
+                                        @error('title_ru')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">title en</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" name="title_en"
+                                            value="{{ old('title_en') }}">
+                                        @error('title_en')
                                             {{ $message }}
                                         @enderror
                                     </div>
@@ -53,10 +73,28 @@
                                 </div>
 
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">description</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">description uz</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <textarea class="ckeditor form-control" name="description" value="{{ old('description') }}"></textarea>
-                                        @error('description')
+                                        <textarea class="ckeditor form-control" name="description_uz" value="{{ old('description_uz') }}"></textarea>
+                                        @error('description_uz')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">description ru</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <textarea class="ckeditor form-control" name="description_ru" value="{{ old('description_ru') }}"></textarea>
+                                        @error('description_ru')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">description en</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <textarea class="ckeditor form-control" name="description_en" value="{{ old('description_en') }}"></textarea>
+                                        @error('description_en')
                                             {{ $message }}
                                         @enderror
                                     </div>

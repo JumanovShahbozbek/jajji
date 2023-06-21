@@ -32,9 +32,19 @@
                     @csrf
                     @method('PUT')
                     
-                    <strong> title :</strong>
-                    <input type="text" name="title" value="{{ $info->title }}" class="form-control"> <br>
-                    @error('title')
+                    <strong> title uz:</strong>
+                    <input type="text" name="title_uz" value="{{ $info->title_uz }}" class="form-control"> <br>
+                    @error('title_uz')
+                        {{$message}}
+                    @enderror
+                    <strong> title ru:</strong>
+                    <input type="text" name="title_ru" value="{{ $info->title_ru }}" class="form-control"> <br>
+                    @error('title_ru')
+                        {{$message}}
+                    @enderror
+                    <strong> title en:</strong>
+                    <input type="text" name="title_en" value="{{ $info->title_en }}" class="form-control"> <br>
+                    @error('title_en')
                         {{$message}}
                     @enderror
 
@@ -44,10 +54,22 @@
                         {{$message}}
                     @enderror
 
-                    <strong> Description :</strong>
-                    <textarea class="ckeditor form-control" name="description" value="{{ $info->description }}"></textarea>
-                    {{-- <input type="text" name="description" value="{{ $info->description }}" class="form-control"> <br> --}}
-                    @error('description')
+                    <strong> Description uz:</strong>
+                    {{-- <textarea class="ckeditor form-control" name="description" value="{{ $info->description }}"></textarea> --}}
+                    <input type="text" name="description_uz" value="{{ $info->description_uz }}" class="form-control"> <br>
+                    @error('description_uz')
+                        {{$message}}
+                    @enderror
+                    <strong> Description ru:</strong>
+                    {{-- <textarea class="ckeditor form-control" name="description" value="{{ $info->description }}"></textarea> --}}
+                    <input type="text" name="description_ru" value="{{ $info->description_ru }}" class="form-control"> <br>
+                    @error('description_ru')
+                        {{$message}}
+                    @enderror
+                    <strong> Description en:</strong>
+                    {{-- <textarea class="ckeditor form-control" name="description" value="{{ $info->description }}"></textarea> --}}
+                    <input type="text" name="description_en" value="{{ $info->description_en }}" class="form-control"> <br>
+                    @error('description_en')
                         {{$message}}
                     @enderror
 

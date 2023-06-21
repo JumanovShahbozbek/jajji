@@ -32,6 +32,12 @@ use App\Http\Controllers\Admin\TeacherController;
 
 Route::auto('/', SiteController::class);
 
+Route::get('/lang/{lang}', function($lang){
+    session(['lang' => $lang]);
+
+    return back();
+});
+
 Route::get('/', function(){
     return redirect('/welcome');
 });

@@ -16,9 +16,13 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->text('img')->nullable();
-            $table->text('title')->nullable();
+            $table->text('title_uz')->nullable();
+            $table->text('title_ru')->nullable();
+            $table->text('title_en')->nullable();
             $table->text('name')->nullable();
-            $table->text('content')->nullable();
+            $table->text('content_uz')->nullable();
+            $table->text('content_ru')->nullable();
+            $table->text('content_en')->nullable();
             $table->timestamps();
         });
     }

@@ -4,8 +4,8 @@
             <div class="card border-0 bg-light shadow-sm pb-2">
                 <img class="card-img-top mb-2" src="images/{{ $group->image }}" alt="">
                 <div class="card-body text-center">
-                    <h4 class="card-title">{{ $group->title }}</h4>
-                    <p class="card-text">{{ $group->content }}</p>
+                    <h4 class="card-title">{{ $group['title_'.\App::getLocole()] }}</h4>
+                    <p class="card-text">{{ $group['content_'.\App::getLocale()] }}</p>
                 </div>
                 <div class="card-footer bg-transparent py-4 px-5">
                     <div class="row border-bottom">

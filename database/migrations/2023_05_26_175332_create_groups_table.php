@@ -16,8 +16,12 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
-            $table->string('title');
-            $table->text('content')->nullable();
+            $table->string('title_uz')->nullable();
+            $table->string('title_ru')->nullable();
+            $table->string('title_en')->nullable();
+            $table->text('content_uz')->nullable();
+            $table->text('content_ru')->nullable();
+            $table->text('content_en')->nullable();
             $table->integer('age')->nullable();
             $table->integer('seat')->nullable();
             $table->text('time')->nullable();

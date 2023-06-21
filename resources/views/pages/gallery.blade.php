@@ -3,7 +3,7 @@
 @section('content')
 
  <!-- Header Start -->
-    <x-headr name1="Galereya" name2="Galereya" ></x-headr>
+    <x-headr name1="{{ __ ('navbar.gallery')}}" name2="{{ __ ('navbar.gallery')}}" ></x-headr>
 <!-- Header End -->
 
 <!-- Gallery Start -->

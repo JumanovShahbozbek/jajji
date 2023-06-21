@@ -7,8 +7,8 @@
                     <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                         <i class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"></i>
                         <div class="pl-4">
-                            <h4>{{ $info->title }}</h4>
-                            <p class="m-0">{{ $info->description }}</p>
+                            <h4>{{ $info['title_'.\App::getLocale()] }}</h4>
+                            <p class="m-0">{!! $info['description_'.\App::getLocale()] !!}</p>
                         </div>
                     </div>
                 </div>

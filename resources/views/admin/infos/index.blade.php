@@ -19,10 +19,9 @@
             </div>
         @endif
 
-            <div class="card-header nav justify-content-center">
-                <a href="{{ route('admin.infos.create') }}" class="btn btn-primary"
-                    style="position:absolute; right:50;">Create</a>
-            </div><br>
+        <div class="card-header nav justify-content-center">
+            <a href="{{ route('admin.infos.create') }}" class="btn btn-primary" style="position:absolute; right:50;">Create</a>
+        </div><br>
 
         <div class="card-body">
             <div class="table-responsive">
@@ -32,9 +31,13 @@
                             <th class="text-center">
                                 #
                             </th>
-                            <th>title</th>
+                            <th>title uz</th>
+                            <th>title ru</th>
+                            <th>title en</th>
                             <th>icon</th>
-                            <th>description</th>
+                            <th>description uz</th>
+                            <th>description ru</th>
+                            <th>description en</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -52,10 +55,13 @@
                                 <td>
                                     {{ ++$loop->index }}
                                 </td>
-                                <td>{{ $info->title }}</td>
-                                <td><img src="/icon/{{ $info->icon }}" alt="" width="70px">
-                                </td>
-                                <td>{{ $info->description }}</td>
+                                <td>{{ $info->title_uz }}</td>
+                                <td>{{ $info->title_ru }}</td>
+                                <td>{{ $info->title_en }}</td>
+                                <td><img src="/icon/{{ $info->icon }}" alt="" width="70px"></td>
+                                <td>{{ $info->description_uz }}</td>
+                                <td>{{ $info->description_ru }}</td>
+                                <td>{{ $info->description_en }}</td>
 
                                 <td>
                                     <form action="{{ route('admin.infos.destroy', $info->id) }}" method="POST">

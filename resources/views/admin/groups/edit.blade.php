@@ -38,15 +38,39 @@
                         {{ $message }}
                     @enderror
 
-                    <strong> title :</strong>
-                    <input type="text" name="title" value="{{ $group->title }}" class="form-control"> <br>
-                    @error('title')
+                    <strong> title uz:</strong>
+                    <input type="text" name="title_uz" value="{{ $group->title_uz }}" class="form-control"> <br>
+                    @error('title_uz')
                         {{ $message }}
                     @enderror
 
-                    <strong> Description :</strong>
-                    <input type="text" name="content" value="{{ $group->content }}" class="form-control"> <br>
-                    @error('content')
+                    <strong> title ru:</strong>
+                    <input type="text" name="title_ru" value="{{ $group->title_ru }}" class="form-control"> <br>
+                    @error('title_ru')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> title en:</strong>
+                    <input type="text" name="title_en" value="{{ $group->title_en }}" class="form-control"> <br>
+                    @error('title_en')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Description uz:</strong>
+                    <input type="text" name="content_uz" value="{{ $group->content_uz }}" class="form-control"> <br>
+                    @error('content_uz')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Description ru:</strong>
+                    <input type="text" name="content_ru" value="{{ $group->content_ru }}" class="form-control"> <br>
+                    @error('content_ru')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Description en:</strong>
+                    <input type="text" name="content_en" value="{{ $group->content_en }}" class="form-control"> <br>
+                    @error('content_en')
                         {{ $message }}
                     @enderror
 

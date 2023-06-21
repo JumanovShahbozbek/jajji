@@ -37,9 +37,19 @@
                         {{ $message }}
                     @enderror
 
-                    <strong> title :</strong>
-                    <input type="text" name="title" value="{{ $article->title }}" class="form-control"> <br>
-                    @error('title')
+                    <strong> title uz:</strong>
+                    <input type="text" name="title_uz" value="{{ $article->title_uz }}" class="form-control"> <br>
+                    @error('title_uz')
+                        {{ $message }}
+                    @enderror
+                    <strong> title ru:</strong>
+                    <input type="text" name="title_ru" value="{{ $article->title_ru }}" class="form-control"> <br>
+                    @error('title_ru')
+                        {{ $message }}
+                    @enderror
+                    <strong> title en:</strong>
+                    <input type="text" name="title_en" value="{{ $article->title_en }}" class="form-control"> <br>
+                    @error('title_en')
                         {{ $message }}
                     @enderror
 
@@ -49,9 +59,19 @@
                         {{ $message }}
                     @enderror
 
-                    <strong> content :</strong>
-                    <input type="text" name="content" value="{{ $article->content }}" class="form-control"> <br>
-                    @error('content')
+                    <strong> content uz:</strong>
+                    <input type="text" name="content_uz" value="{{ $article->content_uz }}" class="form-control"> <br>
+                    @error('content_uz')
+                        {{ $message }}
+                    @enderror
+                    <strong> content ru:</strong>
+                    <input type="text" name="content_ru" value="{{ $article->content_ru }}" class="form-control"> <br>
+                    @error('content_ru')
+                        {{ $message }}
+                    @enderror
+                    <strong> content en:</strong>
+                    <input type="text" name="content_en" value="{{ $article->content_en }}" class="form-control"> <br>
+                    @error('content_en')
                         {{ $message }}
                     @enderror
 

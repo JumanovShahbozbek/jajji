@@ -28,9 +28,21 @@
 
                                         <tr>
                                             <td>
-                                                <p>title : </p>
+                                                <p>title uz: </p>
                                             </td>
-                                            <td><b>{{ $article->title }}</b></td>
+                                            <td><b>{{ $article->title_uz }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>title ru: </p>
+                                            </td>
+                                            <td><b>{{ $article->title_ru }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>title en: </p>
+                                            </td>
+                                            <td><b>{{ $article->title_en }}</b></td>
                                         </tr>
 
                                         <tr>
@@ -42,10 +54,23 @@
 
                                         <tr>
                                             <td>
-                                                <p>content : </p>
+                                                <p>content uz: </p>
                                             </td>
-                                            <td><b>{{ $article->content }}</b></td>
+                                            <td><b>{{ $article->content_uz }}</b></td>
                                         </tr>
+                                        <tr>
+                                            <td>
+                                                <p>content ru: </p>
+                                            </td>
+                                            <td><b>{{ $article->content_ru }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>content en: </p>
+                                            </td>
+                                            <td><b>{{ $article->content_en }}</b></td>
+                                        </tr>
+
                                     </thead>
                                 </table>
                             </div>

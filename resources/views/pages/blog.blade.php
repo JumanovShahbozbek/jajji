@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Header Start -->
-  <x-headr name1="Bizning maqolalarimiz" name2="Maqolalar"></x-headr>
+  <x-headr name1="{{ __ ('staticinfo.articleh')}}  " name2="{{ __ ('navbar.articles')}}"></x-headr>
 <!-- Header End -->
 
 
@@ -11,8 +11,8 @@
 <div class="container-fluid pt-5">
     <div class="container">
         <div class="text-center pb-2">
-            <p class="section-title px-5"><span class="px-2">BOG'CHA HAYOTI</span></p>
-            <h1 class="mb-4">So'nggi maqolalar</h1>
+            <p class="section-title px-5"><span class="px-2"> @lang('staticinfo.life') </span></p>
+            <h1 class="mb-4"> @lang('staticinfo.linfo') </h1>
         </div>
         <div class="row pb-3">
 

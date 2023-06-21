@@ -24,21 +24,21 @@ class TeacherStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|max:3072',
+            /* 'image' => 'required|max:3072',
             'tgram' => 'required|max:20',
             'fbook' => 'required|max:20',
             'insta' => 'required|max:20',            
             'name' => 'required|min:2|max:40',
-            'job' => 'required|min:2|max:25',
+            'job' => 'required|min:2|max:25', */
         ];
     }
 
     public function messages()
     {
         return[
-            'image.required' => 'Rasm joylanishi shart',
+            /* 'image.required' => 'Rasm joylanishi shart',
             'image.max' => 'Rasm hajmi 3 mb dan oshmasligi kerak',
-            'tgram.max' => 'Oyna toldirilishi shart',
+            'tgram.max' => 'Oyna toldirilishi shart', */
         ];
     }    
 }
