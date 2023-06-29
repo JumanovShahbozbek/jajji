@@ -32,9 +32,21 @@
                     @csrf
                     @method('PUT')
                     
-                    <strong> Category :</strong>
-                    <input type="text" name="name" value="{{ $category->name }}" class="form-control"> <br>
-                    @error('name')
+                    <strong> Category uz:</strong>
+                    <input type="text" name="name_uz" value="{{ $category->name_uz }}" class="form-control"> <br>
+                    @error('name_uz')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Category ru:</strong>
+                    <input type="text" name="name_ru" value="{{ $category->name_ru }}" class="form-control"> <br>
+                    @error('name_ru')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Category en:</strong>
+                    <input type="text" name="name_en" value="{{ $category->name_en }}" class="form-control"> <br>
+                    @error('name_en')
                         {{ $message }}
                     @enderror
 

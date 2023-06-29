@@ -32,10 +32,30 @@
                         @method('PUT')
 
                         <div class="form-group row mb-4">
-                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">maqolaa</label>
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">maqolaa uz</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" name="title" value="{{ $post->title }}" class="form-control"> <br>
-                                @error('title')
+                                <input type="text" name="title_uz" value="{{ $post->title_uz }}" class="form-control"> <br>
+                                @error('title_uz')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-4">
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">maqolaa ru</label>
+                            <div class="col-sm-12 col-md-7">
+                                <input type="text" name="title_ru" value="{{ $post->title_ru }}" class="form-control"> <br>
+                                @error('title_ru')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-4">
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">maqolaa en</label>
+                            <div class="col-sm-12 col-md-7">
+                                <input type="text" name="title_en" value="{{ $post->title_en }}" class="form-control"> <br>
+                                @error('title_en')
                                     {{ $message }}
                                 @enderror
                             </div>

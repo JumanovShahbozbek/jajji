@@ -36,7 +36,9 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Category</th>
+                                            <th>Category uz</th>
+                                            <th>Category ru</th>
+                                            <th>Category en</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -53,7 +55,9 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $category->name }}</td>
+                                                <td>{{ $category->name_uz }}</td>
+                                                <td>{{ $category->name_ru }}</td>
+                                                <td>{{ $category->name_en }}</td>
 
                                                 <td>
                                                     <form action="{{ route('admin.categories.destroy', $category->id) }}"

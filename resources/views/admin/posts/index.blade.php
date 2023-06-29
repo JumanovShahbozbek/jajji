@@ -36,7 +36,9 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Posts</th>
+                                            <th>Posts uz</th>
+                                            <th>Posts ru</th>
+                                            <th>Posts en</th>
                                             <th>Category</th>
                                             <th>Action</th>
                                         </tr>
@@ -54,7 +56,9 @@
                                                 <td>
                                                     {{ ++$loop->index }}
                                                 </td>
-                                                <td>{{ $post->title }}</td>
+                                                <td>{{ $post->title_uz }}</td>
+                                                <td>{{ $post->title_ru }}</td>
+                                                <td>{{ $post->title_en }}</td>
                                                 <th>{{ $post->category->name ?? 'Boglanmagan' }}</th>
 
                                                 <td>

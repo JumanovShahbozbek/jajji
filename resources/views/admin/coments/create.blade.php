@@ -39,19 +39,45 @@
                                         @enderror
                                     </div>
                                 </div>
+
+
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">content</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">content uz</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('content') }}" name="content">
-                                        @error('content')
+                                        <input type="text" class="form-control" value="{{ old('content_uz') }}"
+                                            name="content_uz">
+                                        @error('content_uz')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">content ru</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" value="{{ old('content_ru') }}"
+                                            name="content_ru">
+                                        @error('content_ru')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">content en</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" value="{{ old('content_en') }}"
+                                            name="content_en">
+                                        @error('content_en')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">img</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="file" class="form-control" value="{{ old('img') }}" name="img">
+                                        <input type="file" class="form-control" value="{{ old('img') }}"
+                                            name="img">
                                         @error('img')
                                             {{ $message }}
                                         @enderror
@@ -60,7 +86,8 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">surname</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('surname') }}" name="surname">
+                                        <input type="text" class="form-control" value="{{ old('surname') }}"
+                                            name="surname">
                                         @error('surname')
                                             {{ $message }}
                                         @enderror
@@ -69,21 +96,47 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">name</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('name') }}" name="name">
+                                        <input type="text" class="form-control" value="{{ old('name') }}"
+                                            name="name">
                                         @error('name')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
+
+
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">job</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">job uz</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('job') }}" name="job">
-                                        @error('job')
+                                        <input type="text" class="form-control" value="{{ old('job_uz') }}"
+                                            name="job_uz">
+                                        @error('job_uz')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">job ru</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" value="{{ old('job_ru') }}"
+                                            name="job_ru">
+                                        @error('job_ru')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">job en</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" value="{{ old('job_en') }}"
+                                            name="job_en">
+                                        @error('job_en')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                     <div class="col-sm-12 col-md-7">

@@ -28,9 +28,23 @@
 
                                         <tr>
                                             <td>
-                                                <p>Content : </p>
+                                                <p>Content uz: </p>
                                             </td>
-                                            <td><b>{{ $coment->content }}</b></td>
+                                            <td><b>{{ $coment->content_uz }}</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>Content ru: </p>
+                                            </td>
+                                            <td><b>{{ $coment->content_ru }}</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>Content en: </p>
+                                            </td>
+                                            <td><b>{{ $coment->content_en }}</b></td>
                                         </tr>
 
                                         <tr>
@@ -56,10 +70,25 @@
 
                                         <tr>
                                             <td>
-                                                <p>Job : </p>
+                                                <p>Job uz: </p>
                                             </td>
-                                            <td><b>{{ $coment->job }}</b></td>
+                                            <td><b>{{ $coment->job_uz }}</b></td>
                                         </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>Job ru: </p>
+                                            </td>
+                                            <td><b>{{ $coment->job_ru }}</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>Job en: </p>
+                                            </td>
+                                            <td><b>{{ $coment->job_en }}</b></td>
+                                        </tr>
+
                                     </thead>
                                 </table>
                             </div>

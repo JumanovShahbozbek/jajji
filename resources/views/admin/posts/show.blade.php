@@ -23,7 +23,9 @@
                                     <thead>
                                         <tr>
                                             <td>Post : </td>
-                                            <td><b>{{ $post->title }}</b></td>
+                                            <td><b>{{ $post->title_uz }}</b></td>
+                                            <td><b>{{ $post->title_ru }}</b></td>
+                                            <td><b>{{ $post->title_en }}</b></td>
                                             <th><b>{{ $post->category->name}}</b></th>
                                         </tr>
 

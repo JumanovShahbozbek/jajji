@@ -37,11 +37,15 @@
                                                 #
                                             </th>
                                             <th>icon</th>
-                                            <th>content</th>
+                                            <th>content uz</th>
+                                            <th>content ru</th>
+                                            <th>content en</th>
                                             <th>image</th>
                                             <th>surname</th>
                                             <th>name</th>
-                                            <th>job</th>
+                                            <th>job uz</th>
+                                            <th>job ru</th>
+                                            <th>job en</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -59,12 +63,19 @@
                                                     {{ ++$loop->index }}
                                                 </td>
                                                 <td><img src="/icon/{{ $coment->icon }}" width="100px" alt=""></td>
-                                                <td>{{ $coment->content }}</td>
+
+                                                <td>{{ $coment->content_uz }}</td>
+                                                <td>{{ $coment->content_ru }}</td>
+                                                <td>{{ $coment->content_en }}</td>
+
                                                 <td><img src="/images/{{ $coment->img }}" width="100px" alt="">
                                                 </td>
                                                 <td>{{ $coment->surname }}</td>
                                                 <td>{{ $coment->name }}</td>
-                                                <td>{{ $coment->job }}</td>
+
+                                                <td>{{ $coment->job_uz }}</td>
+                                                <td>{{ $coment->job_ru }}</td>
+                                                <td>{{ $coment->job_en }}</td>
 
                                                 <td>
                                                     <form action="{{ route('admin.coments.destroy', $coment->id) }}"

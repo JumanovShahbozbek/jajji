@@ -13,6 +13,6 @@
             </div>
         </div>
         <h4>{{ $teacher->name }}</h4>
-        <i>{{ $teacher->job }}</i>
+        <i>{{ $teacher['job_'.\App::getLocale()] }}</i>
     </div>
 

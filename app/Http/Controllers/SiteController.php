@@ -75,12 +75,11 @@ class SiteController extends Controller
 
     public function post_copmlants(Request $request)
     {
-        
         DB::table('copmlants')->insert([
             'name' => $request->name,
             'comp' => $request->comp,
         ]);
-
+        
         return back();
     }
 

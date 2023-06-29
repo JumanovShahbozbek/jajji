@@ -50,10 +50,20 @@
                                             <td>Name : </td>
                                             <td><b>{{ $teacher->name }}</b></td>
                                         </tr>
+
                                         <tr>
-                                            <td>Subject : </td>
-                                            <td><b>{{ $teacher->job }}</b></td>
+                                            <td>Subject uz: </td>
+                                            <td><b>{{ $teacher->job_uz }}</b></td>
                                         </tr>
+                                        <tr>
+                                            <td>Subject ru: </td>
+                                            <td><b>{{ $teacher->job_ru }}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Subject en: </td>
+                                            <td><b>{{ $teacher->job_en}}</b></td>
+                                        </tr>
+
                                     </thead>
                                 </table>
                             </div>

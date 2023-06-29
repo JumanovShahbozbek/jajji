@@ -9,14 +9,14 @@
                 <div class="testimonial-item px-3">
                     <div class="bg-light shadow-sm rounded mb-4 p-4">
                         <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                        {{ $coment->content }}
+                        {{ $coment['content_'.\App::getLocale()] }}
                     </div>
                     <div class="d-flex align-items-center">
                         <img class="rounded-circle" src="images/{{ $coment->img }}" style="width: 70px; height: 70px;"
                             alt="Image">
                         <div class="pl-3">
                             <h5> {{ $coment->surname }} {{ $coment->name }} </h5>
-                            <i> {{ $coment->job }} </i>
+                            <i> {{ $coment['job_'.\App::getLocale()] }} </i>
                         </div>
                     </div>
                 </div>

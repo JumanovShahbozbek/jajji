@@ -141,11 +141,11 @@
                     @csrf
                     @method('POST')
                     <div class="form-group">
-                        <input type="text" class="form-control border-0 py-4" placeholder="@lang('footer.name')"
+                        <input type="text" name="name" class="form-control border-0 py-4" placeholder="@lang('footer.name')"
                             required="required" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control border-0 py-4" placeholder="@lang('footer.wcomp')"
+                        <input type="text" name="comp" class="form-control border-0 py-4" placeholder="@lang('footer.wcomp')"
                             required="required" />
                     </div>
                     <div>

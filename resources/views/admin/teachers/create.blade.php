@@ -96,16 +96,39 @@
                                         @enderror
                                     </div>
                                 </div>
+
+
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Job</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Job uz</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" value="{{ old('job') }}"
-                                            name="job">
-                                        @error('job')
+                                        <input type="text" class="form-control" value="{{ old('job_uz') }}"
+                                            name="job_uz">
+                                        @error('job_uz')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Job ru</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" value="{{ old('job_ru') }}"
+                                            name="job_ru">
+                                        @error('job_ru')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Job en</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" value="{{ old('job_en') }}"
+                                            name="job_en">
+                                        @error('job_en')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>

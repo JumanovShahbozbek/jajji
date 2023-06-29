@@ -141,6 +141,8 @@
             </div>
         </header>
 
+        
+
         @yield('content')
 
         <footer class="footer">

@@ -42,7 +42,9 @@
                                             <th>facebook</th>
                                             <th>instagram</th>
                                             <th>name</th>
-                                            <th>subject</th>
+                                            <th>subject uz</th>
+                                            <th>subject ru</th>
+                                            <th>subject en</th>
                                             <th>Darajasi</th>
                                             <th>Action</th>
                                         </tr>
@@ -66,7 +68,9 @@
                                                 <td>{{ $teacher->fbook }}</td>
                                                 <td>{{ $teacher->insta }}</td>
                                                 <td>{{ $teacher->name }}</td>
-                                                <td>{{ $teacher->job }}</td>
+                                                <td>{{ $teacher->job_uz }}</td>
+                                                <td>{{ $teacher->job_ru }}</td>
+                                                <td>{{ $teacher->job_en }}</td>
                                                 <td>
                                                     @if ($teacher->status == 0)
                                                         Rahbariyat

@@ -32,11 +32,33 @@
                                 @csrf
 
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">category</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">category uz</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" class="form-control" name="name"
-                                            value="{{ old('name') }}">
-                                        @error('name')
+                                        <input type="text" class="form-control" name="name_uz"
+                                            value="{{ old('name_uz') }}">
+                                        @error('name_uz')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">category ru</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" name="name_ru"
+                                            value="{{ old('name_ru') }}">
+                                        @error('name_ru')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">category en</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" class="form-control" name="name_en"
+                                            value="{{ old('name_en') }}">
+                                        @error('name_en')
                                             {{ $message }}
                                         @enderror
                                     </div>

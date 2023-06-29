@@ -22,9 +22,20 @@
                                 <table class="table table-striped" id="table-1">
                                     <thead>
                                         <tr>
-                                            <td>Category: </td>
-                                            <td><b>{{ $category->name }}</b></td>
+                                            <td>Category uz: </td>
+                                            <td><b>{{ $category->name_uz }}</b></td>
                                         </tr>
+
+                                        <tr>
+                                            <td>Category ru: </td>
+                                            <td><b>{{ $category->name_ru }}</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Category en: </td>
+                                            <td><b>{{ $category->name_en }}</b></td>
+                                        </tr>
+
                                         <tr>
                                             <td>Postlar:</td>
                                             <td><b>

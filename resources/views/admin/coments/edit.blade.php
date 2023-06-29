@@ -37,9 +37,22 @@
                         {{ $message }}
                     @enderror
 
-                    <strong> Content :</strong>
-                    <input type="text" name="content" value="{{ $coment->content }}" class="form-control"> <br>
-                    @error('content')
+
+                    <strong> Content uz:</strong>
+                    <input type="text" name="content_uz" value="{{ $coment->content_uz }}" class="form-control"> <br>
+                    @error('content_uz')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Content ru:</strong>
+                    <input type="text" name="content_ru" value="{{ $coment->content_ru }}" class="form-control"> <br>
+                    @error('content_ru')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Content en:</strong>
+                    <input type="text" name="content_en" value="{{ $coment->content_en }}" class="form-control"> <br>
+                    @error('content_en')
                         {{ $message }}
                     @enderror
 
@@ -65,9 +78,21 @@
                     @enderror
 
 
-                    <strong> Job :</strong>
-                    <input type="text" name="job" value="{{ $coment->job }}" class="form-control"> <br>
-                    @error('job')
+                    <strong> Job uz:</strong>
+                    <input type="text" name="job_uz" value="{{ $coment->job_uz }}" class="form-control"> <br>
+                    @error('job_uz')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Job ru:</strong>
+                    <input type="text" name="job_ru" value="{{ $coment->job_ru }}" class="form-control"> <br>
+                    @error('job_ru')
+                        {{ $message }}
+                    @enderror
+
+                    <strong> Job en:</strong>
+                    <input type="text" name="job_en" value="{{ $coment->job_en }}" class="form-control"> <br>
+                    @error('job_en')
                         {{ $message }}
                     @enderror
 

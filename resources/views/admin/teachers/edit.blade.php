@@ -79,10 +79,24 @@
                             @enderror
                         </div>
 
-                        <strong> Job :</strong>
+                        <strong> Job uz:</strong>
                         <div class="col-sm-12 col-md-7">
-                            <input type="text" name="job" value="{{ $teacher->job }}" class="form-control"> <br>
-                            @error('job')
+                            <input type="text" name="job_uz" value="{{ $teacher->job_uz }}" class="form-control"> <br>
+                            @error('job_uz')
+                                {{ $message }}
+                            @enderror
+                        </div>
+                        <strong> Job ru:</strong>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="text" name="job_ru" value="{{ $teacher->job_ru }}" class="form-control"> <br>
+                            @error('job_ru')
+                                {{ $message }}
+                            @enderror
+                        </div>
+                        <strong> Job en:</strong>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="text" name="job_en" value="{{ $teacher->job_en }}" class="form-control"> <br>
+                            @error('job_en')
                                 {{ $message }}
                             @enderror
                         </div>
