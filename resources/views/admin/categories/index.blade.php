@@ -42,6 +42,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
+                                    
                                     <tbody>
                                         @if (count($categories) == 0)
                                             <tr>

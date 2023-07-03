@@ -39,9 +39,10 @@
                                         <tr>
                                             <td>Postlar:</td>
                                             <td><b>
-                                                @foreach ($category->posts as $category)                                 
-                                                    {{ $category->title }} <br>
-                                                @endforeach</b>
+                                                    @foreach ($category->posts as $category)
+                                                        {{ $category->title }} <br>
+                                                    @endforeach
+                                                </b>
                                             </td>
                                         </tr>
                                     </thead>

@@ -71,20 +71,6 @@ Route::prefix('admin/')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         '/districts' => DistrictController::class,
         '/streets' => StreetController::class,
     ]);
-    // Route::resource('/infos', InfoController::class);
-    // Route::resource('/groups', GroupController::class);
-    // Route::resource('/teachers', TeacherController::class);
-    // Route::resource('/coments', ComentController::class);
-    // Route::resource('/articles', ArticleController::class);
-    // Route::resource('/gallaries', GallaryController::class);
-
-    // Route::resource('/humans', HumanController::class);
-    // Route::resource('/numbers', NumberController::class);
-    // Route::resource('/categories', CategoryController::class);
-    // Route::resource('/posts', PostController::class);
-    // Route::resource('/regions', RegionController::class);
-    // Route::resource('/districts', DistrictController::class);
-    // Route::resource('/streets', StreetController::class);
 });
 
 Auth::routes();
