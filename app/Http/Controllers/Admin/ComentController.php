@@ -28,6 +28,7 @@ class ComentController extends Controller
     {
         $user = auth()->user()->name;
         event(new AuditEvent('create', 'coments', $user, $coment));
+        
         $requestData = $request->all();
 
         if ($request->hasFile('icon')) {
@@ -122,8 +123,8 @@ class ComentController extends Controller
 
     public function unlink_image(Coment $coment)
     {
-        if (isset($coment->icon) && file_exists(public_path('/images/' . $coment->icon))) {
-            unlink(public_path('/images/' . $coment->icon));
+        if (isset($coment->icon) && file_exists(public_path('/images/' . $coment->img))) {
+            unlink(public_path('/images/' . $coment->img));
         }
     }
 }

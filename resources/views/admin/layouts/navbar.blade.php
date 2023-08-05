@@ -57,7 +57,7 @@
     </svg> Nomerlar</a>
 </li> --}}
 
-{{-- <li class="nav-title">Maqola</li>
+<li class="nav-title">Maqola</li>
 
 <li class="nav-item"><a class="nav-link" href="{{ route('admin.categories.index') }}">
     <svg class="nav-icon">
@@ -69,7 +69,7 @@
     <svg class="nav-icon">
         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
     </svg> Posts</a>
-</li> --}}
+</li>
 
 <li class="nav-title">Manzil</li>
 

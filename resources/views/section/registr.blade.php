@@ -29,7 +29,7 @@
                                     placeholder="@lang('staticinfo.rname')" required="required" />
                             </div>
                             <div class="form-group">
-                                <input type="tel" name="number" class="form-control border-0 p-4"
+                                <input type="number" name="number" class="form-control border-0 p-4"
                                     placeholder="@lang('staticinfo.rnumber')" required="required" />
                             </div>
                             <div class="form-group">

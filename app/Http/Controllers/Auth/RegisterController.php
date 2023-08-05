@@ -67,6 +67,7 @@ class RegisterController extends Controller
     {
         $user = $data['name'];
         event(new LoginEvent($user));
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
